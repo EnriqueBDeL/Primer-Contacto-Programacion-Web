@@ -20,46 +20,44 @@
 
       function getLocation() {
         if (navigator.geolocation) {
-          // Se pasan las funciones success y error como argumentos
           navigator.geolocation.getCurrentPosition(success, error);
         } else {
-          x.innerHTML = "Geolocation is not supported by this browser.";
+          x.innerHTML =
+            "La geolocalización no es compatible con este navegador.";
         }
       }
 
       function success(position) {
-        // Muestra la latitud y longitud obtenida
         x.innerHTML =
-          "Latitude: " +
+          "Latitud: " +
           position.coords.latitude +
-          "<br>Longitude: " +
+          "<br>Longitud: " +
           position.coords.longitude;
       }
 
       function error(error) {
-        // Manejo detallado de errores mediante switch
         switch (error.code) {
           case error.PERMISSION_DENIED:
-            // Este caso cumple con el requisito de manejar la denegación
-            x.innerHTML = "User denied the request for Geolocation.";
+            x.innerHTML = "El usuario denegó el acceso a la ubicación.";
             break;
           case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable.";
+            x.innerHTML = "La información de la ubicación no está disponible.";
             break;
           case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out.";
+            x.innerHTML =
+              "Se agotó el tiempo de espera para obtener la ubicación.";
             break;
           case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred.";
+            x.innerHTML = "Ha ocurrido un error desconocido.";
             break;
         }
       }
 
-      // Ejecutar automáticamente al cargar la página
       window.onload = getLocation;
     </script>
 
     <footer>
       <p>&copy; Servicio de Entrega</p>
+    </footer>
   </body>
 </html>
