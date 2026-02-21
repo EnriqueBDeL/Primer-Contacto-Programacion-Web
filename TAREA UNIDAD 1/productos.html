@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda de Tecnología - Bugatti Chiron</title>
+  </head>
+  <body>
+    <article itemscope itemtype="https://schema.org/Product">
+      <header>
+        <h1 itemprop="name">Bugatti Chiron Sport</h1>
+      </header>
+
+      <!-- Marca -->
+      <section itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+        <p><strong>Marca:</strong> <span itemprop="name">Bugatti</span></p>
+      </section>
+
+      <!-- Oferta -->
+      <section itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+        <p>
+          <strong>Precio:</strong>
+          <span itemprop="priceCurrency" content="EUR">€</span>
+          <span itemprop="price" content="3200000.00">3.200.000,00</span>
+        </p>
+
+        <p>
+          <strong>Estado:</strong>
+          <link itemprop="availability" href="https://schema.org/InStock" />
+          <span>En stock</span>
+        </p>
+
+        <p>
+          <a itemprop="url" href="https://www.bugatti.com/en/models/chiron">
+            Ver página oficial de compra
+          </a>
+        </p>
+      </section>
+      <br />
+      <!-- Descripción -->
+      <section>
+        <h3>Descripción del Producto</h3>
+        <p itemprop="description">
+          El Bugatti Chiron es el superdeportivo de serie más rápido y potente
+          de la historia de la marca. Su motor W16 de 8.0 litros genera 1.500
+          CV, permitiendo una experiencia de conducción sin precedentes en el
+          mundo de la automoción de lujo.
+        </p>
+      </section>
+
+      <!-- Categoría -->
+      <section>
+        <p>
+          <strong>Categorías:</strong>
+          <span itemprop="category">Coches de lujo</span>,
+          <span itemprop="category">Superdeportivos</span>
+        </p>
+      </section>
+      <br />
+      <!-- Reseñas -->
+      <section>
+        <h3>Reseñas de Clientes</h3>
+
+        <section
+          itemprop="review"
+          itemscope
+          itemtype="https://schema.org/Review"
+        >
+          <header>
+            <h4 itemprop="name">Una joya de la ingeniería</h4>
+          </header>
+
+          <p>
+            Por
+            <span
+              itemprop="author"
+              itemscope
+              itemtype="https://schema.org/Person"
+            >
+              <span itemprop="name">Carlos Sáez</span>
+            </span>
+            el <meta itemprop="datePublished" content="2026-02-19" />
+            19 de febrero de 2026
+          </p>
+
+          <section
+            itemprop="reviewRating"
+            itemscope
+            itemtype="https://schema.org/Rating"
+          >
+            <meta itemprop="worstRating" content="1" />
+            <span>
+              Valoración: <span itemprop="ratingValue">5</span> /
+              <span itemprop="bestRating">5</span> estrellas
+            </span>
+          </section>
+
+          <p itemprop="reviewBody">
+            La aceleración es simplemente de otro mundo. No hay nada igual en el
+            mercado actual.
+          </p>
+        </section>
+
+        <section
+          itemprop="review"
+          itemscope
+          itemtype="https://schema.org/Review"
+        >
+          <br />
+
+          <header>
+            <h4 itemprop="name">Demasiado exclusivo</h4>
+          </header>
+
+          <p>
+            Por
+            <span
+              itemprop="author"
+              itemscope
+              itemtype="https://schema.org/Person"
+            >
+              <span itemprop="name">Elena Rdz</span>
+            </span>
+            el <meta itemprop="datePublished" content="2026-02-20" />
+            21 de febrero de 2026
+          </p>
+
+          <section
+            itemprop="reviewRating"
+            itemscope
+            itemtype="https://schema.org/Rating"
+          >
+            <meta itemprop="worstRating" content="1" />
+            <span>
+              Valoración: <span itemprop="ratingValue">4</span> /
+              <span itemprop="bestRating">5</span> estrellas
+            </span>
+          </section>
+
+          <p itemprop="reviewBody">
+            Es un coche increíble, aunque el mantenimiento y el consumo son
+            astronómicos. Solo para coleccionistas.
+          </p>
+        </section>
+      </section>
+    </article>
+  </body>
+</html>
