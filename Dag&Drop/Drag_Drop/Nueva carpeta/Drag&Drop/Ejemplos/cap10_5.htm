@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Los API JavaScript de HTML5</title>
+<meta charset=utf-8>
+<style type="text/css">
+#box { width:75px; 
+       height:75px;
+       background-color: rgb(195,215,235); 
+       text-align: center;}
+</style>
+<script type="text/javascript">
+function dragStart(ev) {
+ev.dataTransfer.effectAllowed='move';
+ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+}
+</script>
+</head>
+<body>
+<h2>Drag and drop</h2>
+<div id="box" draggable="true" ondragstart="dragStart(ev)">
+<br>Muévame
+</div>
+</body>
+</html>

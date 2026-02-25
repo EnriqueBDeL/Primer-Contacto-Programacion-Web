@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Los API JavaScript de HTML5</title>
+<meta charset=utf-8>
+<style type="text/css">
+#console {width: 250px;
+          border: 1px solid black;
+          padding-left: 5px;
+          margin-bottom: 20px;}
+#boxA, #boxB { float: left;
+               padding: 25px;
+               margin: 5px;}
+#boxA { width:20px; 
+        height:20px;  
+        background-color: rgb(195,215,235);}
+#boxB { width:80px; 
+        height:80px;
+        border: 1px solid black;
+        text-align: center;
+        margin-left: 45px; }
+</style>
+<script type="text/javascript">
+function dragStart(ev) {
+ev.dataTransfer.effectAllowed='move';
+ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+document.getElementById('console').innerHTML = "El movimiento ha comenzado";
+}
+function dragEnter(ev) {
+document.getElementById('console').innerHTML = "El elemento entre en la zona de drop";
+} 
+function dragLeave(ev) {
+document.getElementById('console').innerHTML = "El elemento sale de la zona de drop";
+}
+function dragOver(ev) {
+event.preventDefault();
+return false;
+}
+function dragDrop(ev) {
+var src = ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(src));
+}
+function dragEnd(ev) {
+document.getElementById('console').innerHTML = "El elemento se ha soltado";
+}
+</script>
+</head>
+<body>
+<h2>Drag and drop</h2>
+<div id="console">&nbsp;</div>
+<div id="boxA" draggable="true" ondragstart="dragStart(event)">
+</div>
+<div id="boxB" ondrop="dragDrop(event)" 
+ondragover="dragOver(event)" ondragend="dragEnd(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Los API JavaScript de HTML5</title>
+<meta charset=utf-8>
+<style type="text/css">
+body { background: rgb(195,215,235)}
+#dropzone { background: white;
+            float: left;	
+            margin-left: 10px;	
+            text-align: center;
+            width: 150px;	
+            height: 190px;		   
+            border: 2px dashed black;	
+            color: #d90b0b;
+            font-weight:bold;}		
+#dropzone2 { background: white;
+             float: left;	
+             margin-left: 50px;	
+             text-align: center;
+             width: 150px;           
+             height: 190px;		
+             border: 2px dashed black;	
+             color: #d90b0b;	
+             font-weight: bold;}	
+#box { padding-left: 125px;}
+</style>
+</head>
+<body>
+<script>
+function dragStart(ev) {
+ev.dataTransfer.effectAllowed='copy';
+ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+return true;}
+function dragEnter(ev) {
+event.preventDefault();
+return true;}
+function dragOver(ev) {
+return false;}
+function dragDrop(ev) {
+var eleid = ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(eleid));
+ev.preventDefault();
+}
+</script>
+<div id="box">
+<img id="Me" draggable="" ondragstart="return dragStart(event)" ondragend="return dragEnd(event)" src="HTML5_Logo_128.png">
+</div>
+<br>
+<div id="dropzone" dropzone="copy" ondragenter="return dragEnter(event)" ondragover=" return dragOver(event)" ondrop="return dragDrop(event)"   ><p>Drop zone A</p> </div>
+<div id="dropzone2" ondragenter="return dragEnter(event)" ondragover=" return dragOver(event)" ondrop="return dragDrop(event)"   ><p>Drop zone B </p> </div>
+</body>
+</html>
