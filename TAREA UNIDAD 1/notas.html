@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>Notas</title>
-
 </head>
+<body>
 
- <form id="notaForm">
-        <label>Introduce la nota: <input type="text" id="textarea"></label><br>
-        <button type="button" id="saveData">Guardar</button>
-    </form>
-  
+    <h2>Bloc de Notas</h2>
+    <textarea id="noteInput" placeholder="Escribe la nota" rows="4" cols="30"></textarea>
+    <br>
+    <button id="saveBtn">Guardar Nota</button>
+
+    <div id="message"></div>
+
+    <script>
+       
+       const noteArea = document.getElementById('noteInput');
+        const saveButton = document.getElementById('saveBtn');
+        const messageDiv = document.getElementById('message'); 
+
+   
+        window.onload = () => {
+         
+            const savedNote = localStorage.getItem('userNote');
+       
+            if (savedNote) {
+                noteArea.value = savedNote;
+
+                messageDiv.innerHTML = "Nota cargada del navegador.";
+            }
+        };
 
 
+        saveButton.addEventListener('click', () => {
+            const textToSave = noteArea.value;
+            localStorage.setItem('userNote', textToSave);
+            
+            messageDiv.innerHTML = "¡Nota guardada con éxito!";
+            
+            setTimeout(() => { 
+                messageDiv.innerHTML = ""; 
+            }, 3000);
+        });
+    </script>
 
+</body>
 </html>
