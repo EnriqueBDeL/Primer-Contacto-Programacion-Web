@@ -15,8 +15,12 @@
         <label>Número de teléfono: <input type="tel" id="phone"></label><br>
         <label>URL de sitio web: <input type="url" id="website"></label><br>
         <label>Color favorito: <input type="color" id="color"></label><br>
-        
-        <button type="button" id="saveData">Guardar</button>
+        <label>Rango de experiencia en desarrollo web (1 a 10): <input type="range" id="experience" min="1" max="10" step="1" value="5"> </label><br>
+        <label>Fecha de registro: <input type="date" id="registrationDate"> </label><br>
+        <label>Código de identificación (Ej: ABC-1234): <input type="text" id="idCode" pattern="[A-Z]{3}-[0-9]{4}" title="Debe tener el formato: 3 letras mayúsculas, un guion y 4 números (Ej: ABC-1234)" required> </label> <br>
+
+
+        <button type="button" id="saveData">Enviar Formulario</button>
     </form>
 
 
