@@ -11,7 +11,11 @@
         <h1>Tu ubicación</h1>
       </header>
       <section>
-        <p id="demo">Obteniendo coordenadas...</p>
+        <button onclick="getLocation()">Haz clic aquí para obtener tu ubicación</button>
+        
+        <p id="demo"></p>
+
+        <iframe id="mapa" width="400" height="400" frameborder="0" style="border:0; display:none;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
       </section>
     </article>
 
@@ -19,45 +23,46 @@
       const x = document.getElementById("demo");
 
       function getLocation() {
+        x.innerHTML = "Obteniendo coordenadas..."; 
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(success, error);
+          navigator.geolocation.watchPosition(success, error);
         } else {
-          x.innerHTML =
-            "La geolocalización no es compatible con este navegador.";
+          x.innerHTML = "La geolocalización no es compatible con este navegador.";
         }
       }
 
       function success(position) {
-        x.innerHTML =
-          "Latitud: " +
-          position.coords.latitude +
-          "<br>Longitud: " +
-          position.coords.longitude;
+        x.innerHTML = "Latitud: " + position.coords.latitude +
+        "<br>Longitud: " + position.coords.longitude;
+
+        const map = document.getElementById("mapa");
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        map.style.display = "block"; 
+        
+        map.src = "https://maps.google.com/maps?q=" + lat + "," + lon + "&z=15&output=embed";
       }
 
       function error(error) {
-        switch (error.code) {
+        switch(error.code) {
           case error.PERMISSION_DENIED:
-            x.innerHTML = "El usuario denegó el acceso a la ubicación.";
+            x.innerHTML = "El usuario denegó la solicitud de Geolocalización.";
             break;
           case error.POSITION_UNAVAILABLE:
             x.innerHTML = "La información de la ubicación no está disponible.";
             break;
           case error.TIMEOUT:
-            x.innerHTML =
-              "Se agotó el tiempo de espera para obtener la ubicación.";
+            x.innerHTML = "Se agotó el tiempo de espera para obtener la ubicación.";
             break;
           case error.UNKNOWN_ERROR:
             x.innerHTML = "Ha ocurrido un error desconocido.";
             break;
         }
       }
-
-      window.onload = getLocation;
+      
     </script>
 
     <footer>
-      <p>&copy; Servicio de Entrega</p>
     </footer>
   </body>
 </html>
