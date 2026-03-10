@@ -1,0 +1,13 @@
+@font-face {
+    font-family:Gentium ;
+    src: url(http://site/fonts/Gentium.ttf);
+}
+
+body{
+    font-family: Gentium;
+    background-color: #bdf4ff;
+    color: #cda400;
+   line-height: 1.5;
+   letter-spacing: normal;
+   text-align: justify;
+}
