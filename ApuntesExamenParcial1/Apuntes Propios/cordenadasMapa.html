@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa para Examen</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        /* 2. Altura del mapa (Obligatorio, si no, no se ve) */
+        #mapa { height: 500px; }
+    </style>
+</head>
+<body>
+
+    <div id="mapa"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // A. Crear el mapa centrado en [Latitud, Longitud]
+        let mapa = L.map('mapa').setView([37.99147366162, -1.1854730225148602], 13);
+
+        // B. Cargar la imagen del mapa
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapa);
+
+        // C. Colocar el marcador
+        L.marker([40.4168, -3.7038]).addTo(mapa);
+    </script>
+
+</body>
+</html>

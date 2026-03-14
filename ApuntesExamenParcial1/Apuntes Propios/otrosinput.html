@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipos de Input Clave</title>
+</head>
+<body>
+
+    <h2>Tipos de Input para el Examen</h2>
+
+    <form action="#" method="GET">
+        
+        <label for="correo">Email:</label>
+        <input type="email" name="correo" id="correo"> <!-- type="email": Obliga a que el texto tenga un formato de correo válido (debe llevar @ y un dominio). -->
+        
+        <br><br>
+
+        <label for="clave">Contraseña:</label>
+        <input type="password" name="clave" id="clave"> <!-- type="password": Oculta lo que escribes con puntitos o asteriscos para que no se lea en pantalla. -->
+        
+        <br><br>
+
+        <p>Elige tu curso (Solo uno):</p>
+        <input type="radio" name="curso" id="html" value="html"> <!-- type="radio": Botón redondo. Solo puedes elegir UNO del grupo. TRUCO: Todos los botones redondos del mismo grupo deben tener el mismo 'name' (ej: name="curso"). -->
+        <label for="html">HTML</label>
+        <input type="radio" name="curso" id="css" value="css">
+        <label for="css">CSS</label>
+
+        <br><br>
+
+        <p>Extras (Puedes elegir varios):</p>
+        <input type="checkbox" name="lenguajes" id="html" value="html"><!-- type="checkbox": Casilla cuadrada. Puedes marcar VARIAS, una o ninguna. -->
+        <label for="html">HTML</label>
+        <br>
+        
+        <input type="checkbox" name="lenguajes" id="css" value="css"> 
+        <label for="css">CSS</label>
+        <br>
+
+        <input type="checkbox" name="lenguajes" id="js" value="javascript"> 
+        <label for="js">JavaScript</label>
+        <br>
+
+        <input type="checkbox" name="lenguajes" id="php" value="php" checked> 
+        <label for="php">PHP</label>
+
+        <br><br>
+
+        <label for="archivo">Sube tu tarea:</label>
+        <input type="file" name="archivo" id="archivo"> <!-- type="file": Crea un botón que abre el explorador de tu ordenador para subir un archivo o imagen. -->
+
+        <br><br>
+
+        <label for="rango">Nivel de estrés (1-100):</label>
+        <input type="range" name="estres" id="estres" min="1" max="100"> <!-- type="range": Muestra una barra deslizante. Funciona con 'min', 'max' y 'step' igual que type="number". -->
+
+        <br><br>
+
+        <input type="submit" value="Enviar Formulario"> <!-- type="submit": Es otra forma de crear el botón para enviar el formulario (hace lo mismo que la etiqueta <button>). -->
+
+    </form>
+
+</body>
+</html>

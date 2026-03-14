@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Preguntas Clave del Examen</title>
+</head>
+<body>
+
+    <h2>Formulario de Examen</h2>
+
+    <form action="#" method="GET">
+        
+        <label for="fecha">Fecha de reserva:</label>
+        <input type="date" name="fecha" id="fecha"> <!-- "date" Despliega el calendario nativo del navegador. Ideal para evitar que el usuario escriba fechas en formatos raros. -->
+        
+        <br><br>
+
+        <label for="numero">Cantidad (solo 0, 5 o 10):</label>
+        <input type="number" name="numero" id="numero" min="0" max="10" step="5"> <!-- "number" Muestra unas flechitas (arriba y abajo) en la caja de texto.-->
+        
+        <!-- "step": Obliga a que los valores sean múltiplos del número que pongas-->
+
+
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required autofocus> <br><br>
+
+        <!-- required: hace el campo obligatorio. autofocus: pone el cursor aquí al cargar. -->
+
+
+        <label for="dni">DNI:</label>
+        <input type="text" name="dni" id="dni" placeholder="Ej: 12345678X" maxlength="9"> <br><br>
+
+        <!-- placeholder: texto fantasma de ayuda. maxlength: límite de caracteres.-->
+
+        <label for="id_usuario">Tu ID:</label>
+        <input type="text" name="id_usuario" id="id_usuario" value="USR-99" readonly> <br><br>
+
+    <!-- value: dato por defecto. readonly: no se puede modificar, pero SÍ se envía al servidor. -->
+
+        <label for="descuento">Código Promo:</label>
+        <input type="text" name="descuento" id="descuento" disabled> <br><br>
+
+        <!-- disabled: campo bloqueado en gris, NO se envía al servidor.-->
+
+        <br><br>
+
+        <button type="submit">Enviar datos</button>
+
+    </form>
+
+</body>
+</html>

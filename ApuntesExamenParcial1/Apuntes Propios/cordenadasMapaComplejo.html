@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa con Coordenadas</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        /* 2. Darle tamaño al mapa (¡Súper importante para el examen!) */
+        /* Si no le das una altura (height), el mapa no se verá */
+        #miMapa {
+            height: 500px;
+            width: 100%;
+            border: 2px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <hgroup>
+            <h1>Mapa de Coordenadas</h1>
+            <p>Ejemplo práctico para el examen usando Leaflet</p>
+        </hgroup>
+
+        <div id="miMapa"></div>
+    </article>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // A. Inicializar el mapa indicando el ID del contenedor ('miMapa')
+        // El setView recibe [Latitud, Longitud] y el nivel de zoom (13 es nivel de ciudad)
+        const coordenadas = [37.99147366162, -1.1854730225148602]; 
+        const mapa = L.map('miMapa').setView(coordenadas, 13);
+
+        // B. Cargar los "dibujos" del mapa (los tiles) desde OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(mapa);
+
+        // C. Añadir un marcador (pin) en las mismas coordenadas
+        const marcador = L.marker(coordenadas).addTo(mapa);
+
+        // D. (Opcional) Añadir un pequeño globo de texto al hacer clic
+        marcador.bindPopup("<b>¡Objetivo encontrado!</b><br>Estas son las coordenadas.").openPopup();
+    </script>
+
+</body>
+</html>
