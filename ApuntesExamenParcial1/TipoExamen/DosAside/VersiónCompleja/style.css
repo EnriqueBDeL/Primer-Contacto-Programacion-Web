@@ -1,0 +1,64 @@
+/* ================== ESTRUCTURA GENERAL ================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; /* Que ocupe al menos toda la pantalla */
+    color: #333;
+}
+
+/* ================== CABECERA Y PIE ================== */
+header {
+    background-color: #ff9f9f; /* Rojo pastel */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+}
+
+footer {
+    background-color: #81ecec; /* Turquesa pastel */
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* TRUCO: Si falta texto, empuja el footer siempre abajo del todo */
+}
+
+/* ================== LA ZONA CENTRAL ================== */
+main {
+    display: flex; 
+    flex: 1; /* Ocupa el espacio libre */
+}
+
+/* --- ASIDE IZQUIERDO --- */
+.izquierdo {
+    background-color: #f8e5b9; /* Naranja pastel */
+    width: 25%; /* Le damos un 25% del ancho de la pantalla */
+    padding: 20px;
+    box-sizing: border-box; /* IMPORTANTÍSIMO: Para que el padding no rompa el 25% */
+}
+
+/* TRUCO PARA LA IMAGEN: Evita que se salga de su columna */
+.izquierdo img {
+    max-width: 100%; /* Si la foto es más grande que el aside, se encoge */
+    border-radius: 8px; /* Bordes un poco redondeados */
+    margin-bottom: 15px;
+}
+
+/* --- ARTÍCULO CENTRAL --- */
+article {
+    background-color: #fdfdfd; /* Blanco roto */
+    flex: 1; /* Ocupa todo el centro que sobra */
+    padding: 20px 40px; /* Más espacio a los lados para que respire bien */
+    box-sizing: border-box;
+}
+
+/* --- ASIDE DERECHO --- */
+.derecho {
+    background-color: #b8f2cb; /* Verde pastel */
+    width: 20%; /* Un 20% del ancho */
+    padding: 20px;
+    box-sizing: border-box;
+}

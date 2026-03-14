@@ -1,0 +1,63 @@
+
+
+/* =========================================
+   TRUCO 2: LAS DOS COLUMNAS (MANUAL Y SEMÁNTICO)
+   ========================================= */
+
+
+   tml {
+    background-color: #e0e0e0;
+    padding: 30px;
+}
+
+body {
+    background-color: white;
+    max-width: 800px; /* Ancho del panel central */
+    margin: 0 auto; /* Centramos el panel en la pantalla */
+    padding: 40px; /* Espacio interior para que el texto respire */
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+   
+/* 1. El Article padre (Flexbox con salto de línea) */
+.articulo-dos-columnas {
+    display: flex; 
+    flex-wrap: wrap; /* LA CLAVE: Permite que los elementos salten de línea si no caben */
+}
+
+/* 2. El título (Ocupa toda la primera fila) */
+.titulo-columnas {
+    width: 100%; /* Obligamos al título a empujar a las secciones hacia abajo */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 3. Las dos secciones (Se reparten el espacio abajo) */
+.columna {
+    width: 50%; /* Cada columna ocupa exactamente la mitad */
+    box-sizing: border-box; /* Para que el padding no engorde la caja */
+    text-align: justify;
+}
+
+/* 4. Separación y rayita (El detalle visual) */
+.columna:first-of-type {
+    padding-right: 25px; /* Separamos el texto de la raya por la derecha */
+    border-right: 1px solid #ccc; /* Dibujamos la raya en la primera columna */
+}
+
+.columna:last-of-type {
+    padding-left: 25px; /* Separamos el texto de la raya por la izquierda */
+}
+
+.columna h3 {
+    margin-top: 0;
+    color: #cda400; 
+}

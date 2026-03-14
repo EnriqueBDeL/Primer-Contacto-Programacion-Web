@@ -1,0 +1,39 @@
+/* Quitamos los márgenes blancos que pone el navegador por defecto */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Ponemos header, main y footer en una columna vertical */
+    height: 100vh; /* Obligamos a que la página ocupe el 100% de la altura de la pantalla */
+}
+
+/* ================== CABECERA Y PIE ================== */
+header {
+    background-color: #ff6b6b; /* Rojo claro */
+    height: 80px; /* Le damos altura a la fuerza porque no tiene texto */
+}
+
+footer {
+    background-color: #4ecdc4; /* Turquesa */
+    height: 80px;
+}
+
+/* ================== LA ZONA CENTRAL ================== */
+main {
+    display: flex; /* Ponemos los asides y el article en fila horizontal */
+    flex: 1; /* Le decimos al main que se estire para ocupar todo el espacio libre que dejan el header y el footer */
+}
+
+.izquierdo {
+    background-color: #f7d794; /* Naranja/Amarillo */
+    width: 20%; /* Ocupa el 20% del ancho */
+}
+
+article {
+    background-color: #f1f2f6; /* Gris muy clarito (El centro) */
+    flex: 1; /* Ocupa todo el ancho central que sobra */
+}
+
+.derecho {
+    background-color: #7bed9f; /* Verde claro */
+    width: 20%; /* Ocupa otro 20% del ancho */
+}

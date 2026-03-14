@@ -1,0 +1,45 @@
+/* =========================================
+   DISEÑO BASE (El folio blanco centrado)
+   ========================================= */
+html {
+    background-color: #e0e0e0;
+    padding: 30px;
+}
+
+body {
+    background-color: white;
+    max-width: 800px; /* Ancho del panel central */
+    margin: 0 auto; /* Centramos el panel en la pantalla */
+    padding: 40px; /* Espacio interior para que el texto respire */
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+
+/* =========================================
+   TRUCO 2: LAS DOS COLUMNAS
+   ========================================= */
+.seccion-columnas h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* APLICAMOS LA MAGIA DE LAS COLUMNAS AQUÍ */
+.texto-dividido {
+    column-count: 2; /* Divide automáticamente el texto en 2 columnas */
+    column-gap: 40px; /* Espacio de separación entre las columnas */
+    column-rule: 1px solid #ccc; /* La rayita vertical que separa ambas columnas */
+    text-align: justify; /* Justificamos el texto para que quede recto como en los libros */
+    margin-top: 20px;
+}
+
+.texto-dividido p {
+    margin-top: 0; /* Quitamos el margen superior de los párrafos para que las columnas queden alineadas arriba */
+}
