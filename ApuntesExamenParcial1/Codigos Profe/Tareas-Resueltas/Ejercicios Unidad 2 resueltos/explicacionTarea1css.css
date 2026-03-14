@@ -1,0 +1,102 @@
+
+/* Explicación del código CSS*/
+
+/* 1. Definir una fuente personalizada:*/
+@font-face {
+    font-family: 'MiFuentePersonalizada';
+    src: url('ruta-a-la-fuente.woff2') format('woff2');
+}
+/*- Esto permite cargar una fuente personalizada desde un archivo `.woff2`.  
+- Luego, se puede aplicar esta fuente a diferentes elementos de la web.*/
+
+/* 2.Estilos Generales del body:*/
+body {
+    font-family: 'MiFuentePersonalizada', sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
+/*- Fuente personalizada aplicada a todo el sitio.
+- Fondo gris claro y texto oscuro para mejor legibilidad.
+- Padding de 20px y altura de línea de 1.6 para mejorar la apariencia.*/
+
+/*3. Diseño de Encabezados:*/
+h1, h2, h3 {
+    text-align: center;
+    color: #222;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+h1 {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+/*- Los títulos son centrados, en mayúsculas y con fuente en negrita.
+- Se usa un gradiente cálido en `h1` para destacar el encabezado principal.
+
+4. Diseño de Párrafos:*/
+p {
+    font-size: 18px;
+    text-align: justify;
+}
+.destacado {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+/* - Tamaño de fuente 18px para mejorar la legibilidad.
+- Texto justificado y destacados con fondo gradiente azul.*/ 
+
+/* 5.Diseño de Tablas:*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+/*- Bordes colapsados, sombra y bordes redondeados para mejorar la visibilidad.
+
+6.Diseño de Imágenes:*/
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+/*- Imágenes responsivas con bordes redondeados y efectos de sombra y zoom.
+
+7.Efecto de Subrayado Animado en Enlaces:*/
+a {
+    color: #0072ff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #0072ff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+a:hover::after {
+    transform: scaleX(1);
+}
+/*- Enlaces con efecto de subrayado animado cuando el usuario pasa el mouse.*/
+
+
