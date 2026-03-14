@@ -1,0 +1,26 @@
+/* =========================================
+   TEXTO CON GRADIENTE (Truco Nivel Pro)
+   ========================================= */
+
+body {
+    background-color: #1a1a1a; /* Ponemos un fondo oscuro en la página para que el gradiente resalte más */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.texto-magico {
+    font-size: 60px; /* Hacemos la letra grande y gordita para que se note bien el efecto */
+    font-weight: bold;
+    
+    /* PASO 1: Creamos el gradiente de fondo (como aprendiste antes) */
+    background: linear-gradient(to right, #e09900, #2d90e2 );
+    
+    /* PASO 2: Recortamos el fondo con la forma del texto */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* PASO 3: Volvemos la letra transparente para que se vea el fondo que acabamos de recortar */
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
