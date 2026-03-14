@@ -1,0 +1,43 @@
+/* Estilos básicos para las cajas */
+section {
+    height: 100px;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 8px;
+}
+
+/* =========================================
+   CONTROLANDO LA INTENSIDAD
+   ========================================= */
+
+/* --- 1. MUY SUAVE --- */
+.gradiente-suave {
+    /* El rojo puro empieza normal, pero le decimos que el amarillo llegue a su tope muy lejos (120%), así la mezcla es larguísima */
+    background: linear-gradient(to right, red 0%, yellow 120%);
+}
+
+/* --- 2. MUY MARCADO --- */
+.gradiente-marcado {
+    /* El rojo se mantiene puro hasta el 40% de la caja. 
+       El amarillo es puro desde el 60%. 
+       La mezcla solo ocurre en ese pequeño hueco entre el 40% y el 60%. */
+    background: linear-gradient(to right, red 40%, yellow 60%);
+}
+
+/* --- 3. CORTE SECO (Pregunta trampa de examen) --- */
+.gradiente-corte {
+    /* Ambos chocan en el 50%. No hay espacio para mezclarse. ¡Crea una bandera! */
+    background: linear-gradient(to right, red 50%, yellow 50%);
+}
+
+/* --- 4. SUTIL CON TRANSPARENCIA --- */
+.gradiente-transparente {
+    /* Usamos rgba (Rojo, Verde, Azul, Opacidad). 
+       El 1 es color sólido, el 0 es totalmente transparente. */
+    background: linear-gradient(to right, rgba(255,0,0, 1), rgba(255,0,0, 0));
+    /* Empieza en rojo sólido y se va difuminando hasta volverse invisible */
+}

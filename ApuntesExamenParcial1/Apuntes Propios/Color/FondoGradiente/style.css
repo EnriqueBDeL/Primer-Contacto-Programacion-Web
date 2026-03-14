@@ -1,0 +1,56 @@
+/* =========================================
+   FONDOS CON GRADIENTES (linear-gradient)
+   ========================================= */
+
+section {
+    height: 120px;         /* Le devolvemos una altura fija para que se vea el gradiente */
+    padding: 30px;         /* "Aire" por dentro para separar el texto de los bordes */
+    margin-bottom: 25px;   /* Separación entre una caja y la de abajo */
+    border-radius: 10px;   /* Un toque pro: redondeamos las esquinas */
+    
+    /* Estilo para que el texto se lea perfecto sobre los colores */
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombrita negra al texto */
+
+    /* Centramos el texto justo en el medio usando Flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* --- EJEMPLO 1: Básico --- */
+.gradiente-basico {
+    /* Si no pones dirección, va de arriba a abajo por defecto */
+    background: linear-gradient(blue, lightblue); 
+}
+
+/* --- EJEMPLO 2: Horizontal --- */
+.gradiente-horizontal {
+    /* "to right" significa "hacia la derecha". 
+       También puedes usar "to left", "to top", "to bottom" */
+    background: linear-gradient(to right, purple, pink); 
+}
+
+/* --- EJEMPLO 3: Diagonal y con múltiples colores --- */
+.gradiente-diagonal {
+    /* "45deg" son 45 grados de inclinación. 
+       Aquí he puesto 3 colores, pero puedes poner 4, 5 o los que quieras */
+    background: linear-gradient(45deg, red, orange, yellow); 
+}
+
+/* --- EJEMPLO 4: Hacia la derecha (to right) --- */
+.hacia-derecha {
+    /* El rojo se pone a la izquierda y avanza HACIA LA DERECHA convirtiéndose en amarillo */
+    background: linear-gradient(to right, rgb(58, 103, 218), yellow); 
+}
+
+/* --- EJEMPLO 5: Hacia la izquierda (to left) --- */
+.hacia-izquierda {
+    /* El rojo se pone a la derecha y avanza HACIA LA IZQUIERDA convirtiéndose en amarillo */
+    background: linear-gradient(to left, rgb(154, 48, 246), rgb(42, 174, 18)); 
+}

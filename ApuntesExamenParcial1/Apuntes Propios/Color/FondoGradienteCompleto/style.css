@@ -1,0 +1,32 @@
+/* =========================================
+   GRADIENTE A PANTALLA COMPLETA
+   ========================================= */
+
+body {
+    /* 1. Quitamos los márgenes blancos que pone el navegador por defecto */
+    margin: 0; 
+    
+    /* 2. LA CLAVE: Obligamos a la página a medir al menos el 100% de la altura de la pantalla */
+    min-height: 100vh; 
+    
+    /* 3. Ponemos el gradiente (ejemplo: de un morado oscuro a un rosa) */
+    background: linear-gradient(to bottom right, #e09900, #2d90e2 );
+
+/*
+
+/* EL TRUCO: Le ponemos '70%' al naranja. 
+       El naranja se mantendrá puro hasta el 70% de la pantalla, y solo en el último 30% se mezclará con el azul. 
+
+           background: linear-gradient(to bottom right, #e09900 70%, #2d90e2 );
+
+
+*/
+
+
+    
+    /* Estilos para que el texto quede bonito sobre ese fondo */
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px; /* Bajamos un poco el texto para que respire */
+}
