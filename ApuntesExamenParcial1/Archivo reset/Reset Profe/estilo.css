@@ -1,0 +1,38 @@
+/* =========================================
+   ESTOS SON TUS ESTILOS PERSONALIZADOS
+   ========================================= */
+
+/* 1. Damos un color de fondo a toda la página y cambiamos la letra */
+body {
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+    padding: 30px; /* Despegamos el contenido de los bordes de la pantalla */
+}
+
+/* 2. Devolvemos el tamaño al H1, pero con nuestro propio estilo */
+h1 {
+    font-size: 32px;
+    color: #1a365d;
+    margin-bottom: 15px; /* Lo separamos del párrafo de abajo */
+    border-bottom: 3px solid #3182ce; /* Le ponemos una raya azul debajo */
+    padding-bottom: 10px;
+}
+
+/* 3. Damos "aire" a los párrafos para que se lean bien */
+p {
+    font-size: 16px;
+    line-height: 1.6; /* Espacio entre las líneas del texto */
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
+/* 4. Arreglamos la lista: le ponemos margen y elegimos qué tipo de viñeta queremos */
+ul {
+    list-style-type: square; /* En vez del círculo por defecto, le ponemos un cuadrado */
+    margin-left: 25px; /* Empujamos la lista a la derecha */
+    color: #2b6cb0;
+}
+
+li {
+    margin-bottom: 8px; /* Separamos un poco cada elemento de la lista */
+}
