@@ -5,9 +5,96 @@
 
 body{
     font-family: Gentium;
-    background-color: #bdf4ff;
-    color: #cda400;
+    background-color: #daeef3;
+    color: #ab8b0b;
    line-height: 1.5;
    letter-spacing: normal;
    text-align: justify;
+}
+
+
+h1{
+    
+    background: linear-gradient(to right, #efeeef, #6a5cff);
+
+}
+
+h2{
+        border-bottom: #00cd2c solid 5px;
+}
+
+h3{
+
+    text-shadow: 4px 2px 5px #0015ff; 
+
+}
+
+
+
+
+
+table{
+    background-color: #380258;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(28, 30, 3, 0.925);
+}
+
+
+tr:nth-child(even) {
+    background-color: #36ff80;
+}
+
+tr:hover {
+    background-color: #ff99d6; 
+}
+
+
+
+
+
+img{
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(28, 30, 3, 0.925);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+img:hover{
+
+    box-shadow: 0 15px 25px rgb(247, 0, 0);
+
+}
+
+
+
+
+
+.texto-destacado {
+    background: linear-gradient(120deg, #9452ff 0%, #ff4dd3 100%);
+    padding: 2px 6px; 
+    border-radius: 3px; 
+    color: #e21414; 
+}
+
+
+
+
+.subrayado-animado{
+    position: relative;
+    text-decoration: none;
+        transition: border-color 0.3s;
+}
+
+.subrayado-animado:hover {
+    border-bottom: 2px solid #d10ca3;
+}
+
+.caja-decorativa{
+
+    display: inline-block;
+    padding: 20px;
+    background: linear-gradient(135deg, #8729d8 0%, #fad0c4 100%);
+    border-radius: 15px;    
+
 }
