@@ -1,0 +1,35 @@
+/* =========================================
+   DISEÑO CON CSS GRID (Nivel Experto)
+   ========================================= */
+
+/* --- EJEMPLO 1 --- */
+.grid-una {
+    display: grid; 
+    grid-template-columns: 1fr; /* 1 sola fracción = 1 columna que ocupa todo */
+    gap: 20px;
+}
+
+/* --- EJEMPLO 2 --- */
+.grid-dos {
+    display: grid;
+    /* repeat(2, 1fr) es un atajo para escribir: 1fr 1fr */
+    grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas exactamente iguales */
+    gap: 30px; /* Separación entre columnas */
+}
+
+/* --- EJEMPLO 3 --- */
+.grid-tres {
+    display: grid;
+    /* Crea 3 columnas de 1 fracción cada una */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+}
+
+/* Un toque de estilo a los párrafos para que se vea claro en el examen */
+section p {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    text-align: justify;
+}
