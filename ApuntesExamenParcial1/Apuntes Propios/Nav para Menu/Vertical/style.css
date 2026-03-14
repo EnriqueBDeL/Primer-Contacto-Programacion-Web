@@ -1,0 +1,33 @@
+/* =========================================
+   EL MENÚ VERTICAL (Tipo Sidebar)
+   ========================================= */
+
+/* 1. Damos estilo al contenedor de la lista */
+nav ul {
+    list-style-type: none; /* Quitamos los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    width: 200px; /* EL TRUCO: Le damos un ancho fijo para que parezca una barra lateral */
+    background-color: #f1f1f1; /* Un fondo gris clarito */
+    border: 1px solid #ccc; /* Un bordecito fino para que quede elegante */
+}
+
+/* 2. Damos estilo a los botones (enlaces) */
+nav a {
+    display: block; /* LA CLAVE: Obliga a que cada enlace ocupe toda la línea de ancho a ancho. Así se apilan en vertical. */
+    color: #000; /* Texto negro */
+    padding: 12px 16px; /* Espaciado por dentro del botón (Arriba/Abajo e Izquierda/Derecha) */
+    text-decoration: none; /* Quitamos el subrayado */
+    border-bottom: 1px solid #ddd; /* Ponemos una rayita separadora debajo de cada botón */
+}
+
+/* 3. Quitamos la rayita al último botón para que quede perfecto (Puntos extra en examen) */
+nav li:last-child a {
+    border-bottom: none;
+}
+
+/* 4. Efecto al pasar el ratón */
+nav a:hover {
+    background-color: #555; /* Fondo gris oscuro */
+    color: white; /* El texto cambia a blanco para que se lea bien */
+}

@@ -1,0 +1,21 @@
+/* =========================================
+   DISEÑO CON FLEXBOX (Sin usar divs)
+   ========================================= */
+
+/* 1. EL CONTENEDOR PADRE (<section>) */
+.fila-flex {
+    display: flex; /* LA MAGIA: Pone a los <article> en una fila horizontal */
+    gap: 20px; /* Deja un hueco de 20px entre las cajas */
+    margin-bottom: 20px;
+}
+
+/* 2. LOS HIJOS (<article>) */
+.caja {
+    flex: 1; /* Hace que todos los <article> se estiren para ocupar el mismo espacio exacto */
+    
+    /* Estilos visuales para el examen */
+    background-color: #e2e8f0; 
+    padding: 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px; 
+}

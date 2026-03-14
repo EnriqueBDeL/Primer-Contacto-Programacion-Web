@@ -1,0 +1,36 @@
+/* =========================================
+   ESTILOS DE TUS COLUMNAS
+   ========================================= */
+
+/* Damos un poco de estilo general para que se lea bien */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.5;
+    text-align: justify; /* Justificamos el texto para que los bordes queden rectos */
+}
+
+h2 {
+    color: #333;
+    margin-top: 30px;
+}
+
+/* --- EJEMPLO 1 --- */
+.una-columna {
+    /* No ponemos nada de columnas, lo dejamos por defecto (1 sola) */
+    background-color: #f9f9f9;
+    padding: 15px;
+}
+
+/* --- EJEMPLO 2 --- */
+.dos-columnas {
+    column-count: 2; /* Magia: Lo divide en 2 */
+    column-gap: 30px; /* Deja un hueco de 30px entre la columna 1 y la 2 */
+}
+
+/* --- EJEMPLO 3 --- */
+.tres-columnas {
+    column-count: 3; /* Magia: Lo divide en 3 */
+    column-gap: 40px; /* Deja un hueco de 40px entre las columnas */
+    column-rule: 2px solid #ccc; /* Dibuja una línea gris de 2px entre ellas */
+}

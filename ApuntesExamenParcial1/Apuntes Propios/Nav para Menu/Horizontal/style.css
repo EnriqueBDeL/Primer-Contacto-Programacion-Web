@@ -1,0 +1,31 @@
+/* =========================================
+   EL MENÚ CON INLINE-BLOCK (Lo que pide la profe)
+   ========================================= */
+
+/* 1. Le quitamos los puntos a la lista y el margen por defecto */
+nav ul {
+    list-style-type: none; /* Quita los puntitos redondos */
+    margin: 0;
+    padding: 0;
+    background-color: #333; /* Fondo gris oscuro para la barra */
+    text-align: center; /* Centra los botones en medio de la pantalla */
+}
+
+/* 2. Ponemos los elementos uno al lado del otro */
+nav li {
+    display: inline-block; /* Magia: los pone en horizontal en vez de en vertical */
+    vertical-align: middle; /* EL TRUCO: Asegura que todos estén alineados exactamente al medio verticalmente */
+}
+
+/* 3. Ponemos bonitos los enlaces (los botones) */
+nav a {
+    display: block; /* Para que todo el cuadradito sea clickeable, no solo el texto */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Le quita el subrayado feo a los enlaces */
+    padding: 15px 20px; /* Le da espacio por dentro para que parezca un botón */
+}
+
+/* 4. Efecto al pasar el ratón (¡Da puntos extra en los exámenes!) */
+nav a:hover {
+    background-color: #555; /* Se pone más clarito al pasar el ratón */
+}
