@@ -1,0 +1,61 @@
+/*
+
+Es una regla de CSS que te permite cargar fuentes tipográficas personalizadas (como las que descargas de internet) 
+en tu página web, asegurando que todos los usuarios vean esa misma letra aunque no la tengan instalada en sus ordenadore
+
+*/
+
+/* =========================================
+   1. CARGAMOS LAS FUENTES CON @FONT-FACE
+   ========================================= */
+
+
+
+/* PASO 1: Creamos la regla @font-face para cargar el archivo */
+@font-face {
+    font-family: 'MiFuenteChula'; /* 1. Le inventas el nombre que tú quieras */
+    src: url('fuentes/mi-letra.woff2'); /* 2. Le indicas la ruta donde está guardado el archivo */
+}
+
+/* Para la clase Sans-Serif */
+@font-face {
+    font-family: 'Roboto';
+    src: url('fuentes/roboto.woff2') format('woff2');
+}
+
+/* Para la clase Serif */
+@font-face {
+    font-family: 'Merriweather';
+    src: url('fuentes/merriweather.woff2') format('woff2');
+}
+
+/* Para la clase Monospace */
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('fuentes/roboto-mono.woff2') format('woff2');
+}
+
+/* =========================================
+   2. APLICAMOS LAS FUENTES A TU HTML
+   ========================================= */
+
+/* Siempre ponemos las Web-Safe Fonts de "Plan B" por si el archivo .woff2 falla */
+
+h1 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #2c3e50; /* Un color oscuro para que quede elegante */
+}
+
+.texto-sans-serif {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+.texto-serif {
+    font-family: 'Merriweather', 'Times New Roman', Times, serif;
+}
+
+.texto-monospace {
+    font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+    background-color: #f4f4f4; /* Fondo gris para que parezca código real */
+    padding: 5px;
+}
