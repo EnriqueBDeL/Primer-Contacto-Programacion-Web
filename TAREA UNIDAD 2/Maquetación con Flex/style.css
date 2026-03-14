@@ -1,3 +1,4 @@
+
 html {
     background-color: #e0e0e0;
     padding: 30px;
@@ -6,17 +7,22 @@ html {
 body {
     background-color: white;
     max-width: 900px; 
-    margin: 0 auto;
+    margin: 0 auto; 
     box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
     font-family: 'Times New Roman', Times, serif; 
+    display: flex; 
+    flex-wrap: wrap;
 }
 
+
+
 header {
+    width: 100%; 
     background: linear-gradient(to bottom, #ffffff, #e6e6e6);
     text-align: center;
     padding: 30px;
     border-bottom: 1px solid #ccc;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 header h1 {
@@ -29,12 +35,15 @@ header h1 {
 .subtitulo {
     color: #b3b3b3;
     font-size: 18px;
-    margin-top: 10px;
 }
 
+
+
+
+
+
 article {
-    width: 65%;
-    float: left;
+    width: 65%; 
     padding: 30px;
     border-right: 1px solid #ccc;
     box-sizing: border-box; 
@@ -46,9 +55,12 @@ section {
     margin-bottom: 20px;
 }
 
+
+
+
+
 aside {
     width: 35%;
-    float: left;
     padding: 30px;
     background-color: #fafafa;
     box-sizing: border-box; 
@@ -62,12 +74,13 @@ aside h3 {
     margin-top: 0;
 }
 
+
+
 footer {
-    clear: both;
+    width: 100%; 
     text-align: center;
     padding: 15px;
-    background-color: #ECECEC;
-    color: #8a8888;
+    color: #999;
     border-top: 1px solid #ccc;
     box-sizing: border-box;
 }
