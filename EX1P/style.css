@@ -1,0 +1,109 @@
+/* style.css */
+
+/* 4. Fuente externa (@font-face) para el menú derecho */
+@font-face {
+    font-family: 'FuenteExamen';
+    /* Si no tienes una fuente descargada, el navegador usará una de reserva, 
+       pero esto demuestra a la profe que sabes cómo se hace */
+    src: local('Courier New'), local('Courier'); 
+}
+
+/* 1 y 8. Estructura general y bordes redondeados */
+body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre las capas estructurales (como en la foto) */
+}
+
+/* Clases base para las cajas estructurales */
+header, nav, .contenedor-medio, aside, main, footer {
+    border-radius: 10px; /* 8. Bordes redondeados */
+    padding: 20px;
+}
+
+/* 5. Encabezado con sombra en el texto */
+header {
+    background-color: #ff7f50; /* Naranja */
+    color: white;
+  text-align: center;
+}
+
+header h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra en el texto */
+}
+
+/* 6. Lista como menú horizontal */
+nav {
+    background-color: #00e5ff; /* Cian */
+   
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Convierte la lista vertical en horizontal */
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+
+}
+
+/* Estructura de 3 columnas del medio */
+.contenedor-medio {
+    display: flex;
+    gap: 15px;
+    padding: 0; /* Quitamos el padding al contenedor padre para dárselo a los hijos */
+}
+
+/* 7. Colores como en la foto (pero legibles) */
+#izquierdo {
+    background-color: #fdfd96; /* Amarillo pastel */
+    width: 25%;
+}
+
+main {
+    background-color: #f9f9f9; /* Blanco/Gris muy claro */
+    border: 1px solid #eee;
+    flex: 1; /* Ocupa el centro */
+}
+
+#derecho {
+    background-color: #77dd77; /* Verde claro */
+    width: 25%;
+    font-family: 'FuenteExamen', monospace; /* Aplicamos el @font-face aquí */
+}
+
+footer {
+    background-color: #ff66ff; /* Magenta */
+    color: white;
+    text-align: center;
+}
+
+/* CSS para las 2 columnas del texto en el MAIN (HTML punto 5) */
+.texto-columnas {
+    column-count: 2;
+    column-gap: 20px;
+    text-align: justify;
+    margin-top: 15px;
+}
+
+.texto-columnas img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Estilos básicos para el formulario */
+form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
