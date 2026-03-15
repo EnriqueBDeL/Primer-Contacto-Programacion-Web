@@ -1,0 +1,75 @@
+/* Limpiamos márgenes por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* El body es nuestro contenedor Grid */
+.container {
+    display: grid;
+    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+    gap: 10px; /* Separación entre las cajas */
+    
+    /* Tres columnas: 150px (izq) - el resto (1fr) - 150px (der) */
+    grid-template-columns: 150px 1fr 150px;
+    
+    /* Dos filas: el contenido principal estirado (1fr) y el pie de 77px */
+    grid-template-rows: 1fr 77px;
+    
+    /* EL MAPA: Solo dos filas ahora */
+    grid-template-areas: 
+        "sd-l main sd-r"
+        "ft ft ft";
+}
+
+/* =========================================
+   ASIGNAMOS LAS ZONAS Y LOS COLORES
+   ========================================= */
+
+.sidebar-l { 
+    grid-area: sd-l; 
+    background-color: #ff9f43; /* NARANJA VIVO */
+    padding: 20px; 
+    color: white;
+}
+
+main { 
+    grid-area: main; 
+    background-color: #54a0ff; /* AZUL VIVO */
+    padding: 20px; 
+    color: white;
+}
+
+.sidebar-r { 
+    grid-area: sd-r; 
+    background-color: #10ac84; /* VERDE ESMERALDA */
+    padding: 20px; 
+    color: white;
+}
+
+footer { 
+    grid-area: ft; 
+    background-color: #222f3e; /* GRIS OSCURO */
+    padding: 20px; 
+    color: white;
+    text-align: center;
+}
+
+/* =========================================
+   DISEÑO PARA MÓVILES (Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Pasa a ser una sola columna */
+        grid-template-rows: auto; 
+        
+        /* El mapa en vertical para pantallas pequeñas */
+        grid-template-areas: 
+            "sd-l"
+            "main"
+            "sd-r"
+            "ft";
+    }
+}

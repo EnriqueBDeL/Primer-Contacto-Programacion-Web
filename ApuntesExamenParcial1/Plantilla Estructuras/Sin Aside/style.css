@@ -1,0 +1,64 @@
+/* Reseteo para quitar márgenes blancos molestos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* El body es nuestro lienzo Grid */
+.container {
+    display: grid;
+    min-height: 100vh; /* Obliga a la web a medir toda la pantalla como mínimo */
+    gap: 10px; /* Separamos los tres bloques para que queden bonitos */
+    
+    /* UNA SOLA COLUMNA: Ocupa todo el espacio disponible (1fr) */
+    grid-template-columns: 1fr;
+    
+    /* TRES FILAS: Cabecera de 84px, el centro se expande al máximo (1fr), pie de 77px */
+    grid-template-rows: 84px 1fr 77px;
+    
+    /* EL MAPA: Una simple torre vertical */
+    grid-template-areas: 
+        "hd"
+        "main"
+        "ft";
+}
+
+/* =========================================
+   ASIGNAMOS LAS ZONAS Y LOS COLORES
+   ========================================= */
+
+header { 
+    grid-area: hd; 
+    background-color: #ff4757; /* ROJO CORAL */
+    padding: 20px; 
+    color: white;
+    text-align: center;
+}
+
+main { 
+    grid-area: main; 
+    background-color: #f1f2f6; /* GRIS MUY CLARO */
+    padding: 30px; 
+    color: #2f3542; 
+}
+
+footer { 
+    grid-area: ft; 
+    background-color: #2f3542; /* GRIS OSCURO */
+    padding: 20px; 
+    color: white;
+    text-align: center;
+}
+
+/* =========================================
+   DISEÑO PARA MÓVILES (Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        /* En este diseño concreto, el modo móvil es casi igual, 
+           pero cambiamos la altura de las filas para que se adapten al texto automático */
+        grid-template-rows: auto 1fr auto; 
+    }
+}

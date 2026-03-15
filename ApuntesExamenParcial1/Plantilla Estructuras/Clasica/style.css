@@ -1,0 +1,80 @@
+/* Limpiamos márgenes por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* El body es nuestro contenedor Grid */
+.container {
+    display: grid;
+    min-height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+    gap: 10px; /* Separación entre las cajas para que respiren */
+    
+    /* Definimos el tamaño de las columnas: 150px - el resto (1fr) - 150px */
+    grid-template-columns: 150px 1fr 150px;
+    
+    /* Definimos el tamaño de las filas: 84px - el resto (1fr) - 77px */
+    grid-template-rows: 84px 1fr 77px;
+    
+    /* LA MAGIA: Dibujamos el mapa de la web */
+    grid-template-areas: 
+        "hd hd hd"
+        "sd-l main sd-r"
+        "ft ft ft";
+}
+
+/* =========================================
+   ASIGNAMOS LAS ZONAS Y LOS COLORES
+   ========================================= */
+
+header { 
+    grid-area: hd; 
+    background-color: #ff6b6b; /* ROJO / CORAL */
+    padding: 20px; 
+    color: white;
+}
+
+.sidebar-l { 
+    grid-area: sd-l; 
+    background-color: #feca57; /* AMARILLO MOSTAZA */
+    padding: 20px; 
+}
+
+main { 
+    grid-area: main; 
+    background-color: #48dbfb; /* AZUL CLARITO */
+    padding: 20px; 
+}
+
+.sidebar-r { 
+    grid-area: sd-r; 
+    background-color: #1dd1a1; /* VERDE MENTA */
+    padding: 20px; 
+}
+
+footer { 
+    grid-area: ft; 
+    background-color: #222f3e; /* GRIS OSCURO / NEGRO */
+    padding: 20px; 
+    color: white;
+}
+
+/* =========================================
+   DISEÑO PARA MÓVILES (Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-rows: auto; /* La altura se adapta al texto */
+        
+        /* Redibujamos el mapa para que todo vaya en fila india */
+        grid-template-areas: 
+            "hd"
+            "sd-l"
+            "main"
+            "sd-r"
+            "ft";
+    }
+}

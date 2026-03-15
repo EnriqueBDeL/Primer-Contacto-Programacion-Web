@@ -1,0 +1,74 @@
+/* Limpiamos los márgenes del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* El body es nuestro contenedor Grid */
+.container {
+    display: grid;
+    min-height: 100vh; /* La web ocupará al menos el 100% de la pantalla */
+    gap: 10px; /* Hueco entre las cajas */
+    
+    /* Tres columnas: 150px (izq) - el resto (1fr) - 150px (der) */
+    grid-template-columns: 150px 1fr 150px;
+    
+    /* Dos filas: 84px para la cabecera - el resto (1fr) para el contenido */
+    grid-template-rows: 84px 1fr;
+    
+    /* EL MAPA: Fila de cabecera completa, fila de contenido dividida en 3 */
+    grid-template-areas: 
+        "hd hd hd"
+        "sd-l main sd-r";
+}
+
+/* =========================================
+   ASIGNAMOS LAS ZONAS Y LOS COLORES
+   ========================================= */
+
+header { 
+    grid-area: hd; 
+    background-color: #8e44ad; /* MORADO */
+    padding: 20px; 
+    color: white;
+}
+
+.sidebar-l { 
+    grid-area: sd-l; 
+    background-color: #e74c3c; /* ROJO */
+    padding: 20px; 
+    color: white;
+}
+
+main { 
+    grid-area: main; 
+    background-color: #ecf0f1; /* GRIS MUY CLARITO */
+    padding: 20px; 
+    color: #333; /* Texto oscuro para que se lea bien en fondo claro */
+}
+
+.sidebar-r { 
+    grid-area: sd-r; 
+    background-color: #f1c40f; /* AMARILLO */
+    padding: 20px; 
+    color: #333;
+}
+
+/* =========================================
+   DISEÑO PARA MÓVILES (Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Todo pasa a una sola columna */
+        grid-template-rows: auto; 
+        
+        /* El mapa se convierte en una torre vertical */
+        grid-template-areas: 
+            "hd"
+            "sd-l"
+            "main"
+            "sd-r";
+    }
+}

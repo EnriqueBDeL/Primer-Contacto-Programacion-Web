@@ -1,0 +1,77 @@
+/* Reseteo básico para evitar sustos con los márgenes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* El body se convierte en el lienzo de nuestro Grid */
+.container {
+    display: grid;
+    min-height: 100vh; /* Para que ocupe siempre toda la altura de la pantalla */
+    gap: 10px; /* Separación entre zonas (he cambiado tu 0px para que respire) */
+    
+    /* DOS COLUMNAS: La barra izquierda (150px) y el resto de la pantalla (1fr) */
+    grid-template-columns: 150px 1fr;
+    
+    /* TRES FILAS: Cabecera (84px), centro expandible (1fr) y pie (77px) */
+    grid-template-rows: 84px 1fr 77px;
+    
+    /* EL MAPA: Fíjate cómo el aside queda a la izquierda del main */
+    grid-template-areas: 
+        "hd hd"
+        "sd-l main"
+        "ft ft";
+}
+
+/* =========================================
+   ASIGNAMOS LAS ZONAS Y LOS COLORES
+   ========================================= */
+
+header { 
+    grid-area: hd; 
+    background-color: #34495e; /* AZUL OSCURO / GRISÁCEO */
+    padding: 20px; 
+    color: white;
+}
+
+.sidebar-l { 
+    grid-area: sd-l; 
+    background-color: #e74c3c; /* ROJO / CORAL INTENSO */
+    padding: 20px; 
+    color: white;
+}
+
+main { 
+    grid-area: main; 
+    background-color: #ecf0f1; /* GRIS MUY CLARITO */
+    padding: 20px; 
+    color: #333; /* Texto oscuro para contrastar con el fondo claro */
+}
+
+footer { 
+    grid-area: ft; 
+    background-color: #2c3e50; /* AZUL MARINO (A juego con la cabecera) */
+    padding: 20px; 
+    color: white;
+    text-align: center;
+}
+
+/* =========================================
+   DISEÑO PARA MÓVILES (Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        /* En móviles, destruimos las dos columnas y hacemos una sola */
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto;
+        
+        /* El mapa se convierte en una fila india hacia abajo */
+        grid-template-areas: 
+            "hd"
+            "sd-l"
+            "main"
+            "ft";
+    }
+}

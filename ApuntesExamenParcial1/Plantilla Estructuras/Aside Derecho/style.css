@@ -1,0 +1,77 @@
+/* Limpieza básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* El body es nuestro contenedor Grid */
+.container {
+    display: grid;
+    min-height: 100vh; /* Para que el pie se quede abajo si hay poco texto */
+    gap: 10px; /* Separación entre zonas */
+    
+    /* DOS COLUMNAS: El contenido principal estirado (1fr) y la barra derecha de 150px */
+    grid-template-columns: 1fr 150px;
+    
+    /* TRES FILAS: Cabecera (84px), centro expandible (1fr) y pie (77px) */
+    grid-template-rows: 84px 1fr 77px;
+    
+    /* EL MAPA: Como hay dos columnas, dibujamos en parejas */
+    grid-template-areas: 
+        "hd hd"
+        "main sd-r"
+        "ft ft";
+}
+
+/* =========================================
+   ASIGNAMOS LAS ZONAS Y LOS COLORES
+   ========================================= */
+
+header { 
+    grid-area: hd; 
+    background-color: #9b59b6; /* MORADO CHULO */
+    padding: 20px; 
+    color: white;
+}
+
+main { 
+    grid-area: main; 
+    background-color: #ecf0f1; /* GRIS MUY CLARO (Ideal para leer) */
+    padding: 20px; 
+    color: #333;
+}
+
+.sidebar-r { 
+    grid-area: sd-r; 
+    background-color: #e67e22; /* NARANJA INTENSO */
+    padding: 20px; 
+    color: white;
+}
+
+footer { 
+    grid-area: ft; 
+    background-color: #2c3e50; /* AZUL MARINO / NEGRO */
+    padding: 20px; 
+    color: white;
+    text-align: center;
+}
+
+/* =========================================
+   DISEÑO PARA MÓVILES (Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        /* Pasamos todo a una sola columna */
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto;
+        
+        /* El mapa se aplasta como una torre */
+        grid-template-areas: 
+            "hd"
+            "main"
+            "sd-r"
+            "ft";
+    }
+}
