@@ -1,0 +1,124 @@
+/*@import url("reset.css");*/
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('fonts/CustomFont.woff2') format('woff2');
+}
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header{
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 3);
+}
+
+/* Navegación arriba del layout principal */
+header, nav {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    background-color: cornflowerblue;
+    padding: 1em;
+    border-radius: 10px;
+    justify-content: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 3em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Columnas laterales y contenido central */
+#leftcolumn,
+#rightcolumn {
+    width: 20%;
+    min-width: 150px;
+    background-color: #f0f0f0;
+    padding: 1em;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin: 1em 0.5em;
+}
+
+#content {
+    flex: 1;
+    min-width: 300px;
+    background-color: #ffffff;
+    padding: 1em;
+    margin: 1em 0.5em;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.galeria li {
+    flex: 1 1 300px; /* se adapta, mínimo 300px */
+    max-width: 300px;
+    text-align: center;
+}
+
+.galeria img {
+    width: 100%;
+    height: 350px; /* Altura fija */
+    display: block;
+    border-radius: 8px;
+}
+
+.galeria p {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.bookInfo{
+    display: flex;
+    gap: 1px;
+}
+
+.bookSection{
+    margin-top: 30px;
+}
+
+.imgBook{
+    width: 25%;
+    height: 400px;
+    display: block;
+    border-radius: 8px;
+}
+
+#map {
+    height: 200px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: 'CustomFont', 'sans-serif';
+}

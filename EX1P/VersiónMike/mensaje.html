@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Datos almacenados:</h2>
+    <p><strong>Nombre:</strong> <span id="mostrarNombre"></span></p>
+     <p><strong>Email:</strong> <span id="mostrarEmail"></span></p>
+     <!-- Puedes agregar más campos igual -->
+
+    <script>
+        document.getElementById("mostrarNombre").textContent = localStorage.getItem("nombre");
+        document.getElementById("mostrarEmail").textContent = localStorage.getItem("email");
+  </script>
+</body>
+</html>

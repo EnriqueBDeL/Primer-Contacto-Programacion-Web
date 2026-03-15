@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <title>Libro</title>
+</head>
+<body id="wrapper">
+    <span itemscope itemtype="https://schema.org/Book"></span>
+    <header>
+        <h1>ESTUDIANTES</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#Inicio">INICIO</a></li>
+            <li><a href="#Formulario">FORMULARIO</a></li>
+            <li><a href="#table">TABLA</a></li>
+            <li><a href="#Imagen">IMAGEN</a></li>
+            <li><a href="#Ayuda">AYUDA</a></li>
+        </ul>
+    </nav>
+
+    <aside id="leftcolumn">
+        <h2>Formulario</h2>
+        <form action="#" method="post">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+        
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required><br><br>
+        
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required><br><br>
+        
+                <label for="fechaNacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br><br>
+        
+                <label for="telefono">Número de teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" placeholder="1234567890" required><br><br>
+        
+                <label for="website">URL de sitio web personal:</label>
+                <input type="url" id="website" name="website"><br><br>
+        
+                <label for="color">Color favorito:</label>
+                <input type="color" id="color" name="color"><br><br>
+        
+                <label for="experiencia">Rango de experiencia en desarrollo web (1-10):</label>
+                <input type="range" id="experiencia" name="experiencia" min="1" max="10"><br><br>
+        
+                <label for="registro">Fecha de registro:</label>
+                <input type="datetime-local" id="registro" name="registro" required><br><br>
+        
+                <label for="codigo">Código de identificación (ABC-1234):</label>
+                <input type="text" id="codigo" name="codigo" pattern="[A-Z]{3}-[0-9]{4}" placeholder="ABC-1234" required><br><br>
+
+                <br><input type="submit" value="Enviar" id="btnEnviar" onclick="saveData()"><br>
+        </form>
+    </aside>
+
+    <main id="content">
+        <aside>
+            <ul class="galeria">
+                <li>
+                    <img src="./img/descarga (1).jpeg" alt="Foto 1">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus a iure, dolores illum</p>
+                </li>
+                <li>
+                    <img src="./img/descarga (2).jpeg" alt="Libro 2">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore nisi possimus earum</p>
+                </li>
+                <li>
+                    <img src="./img/descarga.jpeg" alt="Libro 3">
+                    <p>Lorem ipsum dolor sit a</p>
+                </li>
+            </ul> 
+        </aside>
+        <section class="bookSection">
+            <h3>Informacion sobre el libro:</h3>
+            <aside class="bookInfo">
+                <img src="./img/25 libros de cozy crime que enganchan y son perfectos para leer las tardes de los fines de semana.jpeg" alt="Portada de libro" class="imgBook">
+                <ul>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorem amet ut est doloribus maxime autem quia sapiente itaque aut, impedit placeat eveniet molestiae nam repellat a ab magni soluta!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo enim, quas odit quibusdam cum debitis architecto ea! Nisi maxime, dignissimos laboriosam veniam accusamus, commodi a aspernatur non consectetur voluptate sed?</p>
+                    <h3>Informacion del libro con schema.org:</h3>
+                    <span>
+                        <label>Nombre del libro: </label>
+                        <p itemprop="name">La gata que lo vio todo</p>
+                    </span>
+                    <span>
+                        <label>Descripcion: </label>
+                        <p itemprop="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fugit distinctio labore, nemo corporis asperiores eveniet exercitationem rerum voluptatem, praesentium dolore nisi eum deserunt quaerat aut iusto. Sit, natus? Quaerat.
+                        Corporis, veritatis eius nisi nesciunt commodi culpa consequatur possimus molestiae, atque similique voluptatum cumque fuga optio excepturi a repudiandae qui dolor quos, necessitatibus totam quam in unde! Excepturi, ipsum cum.</p>
+                    </span>
+                    <span>
+                        <label>Autor:</label>
+                        <p itemprop="author">Maria García</p>
+                    </span>
+                    <span>
+                        <label>Fecha de lanzamiento:</label>
+                        <p itemprop="datePublished">12/05/2014</p>
+                    </span>
+                    <span>
+                        <label>Material:</label>
+                        <p itemprop="material">Papel</p>
+                    </span>
+                </ul>
+            </aside>
+        </section>
+    </main>
+</main>
+    <aside id="rightcolumn">
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <button onclick="obtenerUbicacion()">Obtener Ubicación</button>
+        <p id="ubicacion"></p>
+        <nav id="map"></nav>
+        <h2>Este es el texto de la columna derecha.</h2>
+    </aside>
+
+    <footer>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum excepturi omnis cumque non ut! Iste, ex reprehenderit ab sit exercitationem vitae fugiat reiciendis non. Eligendi cum praesentium voluptates non saepe!</p>
+    </footer>
+</body>
+<script>
+    function obtenerUbicacion() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(mostrarUbicacion, mostrarError);
+        } else {
+            document.getElementById("ubicacion").innerText = "La geolocalización no es compatible con tu navegador.";
+        }
+    }
+
+    function mostrarUbicacion(pos) {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        document.getElementById("ubicacion").innerText = `Tu ubicación: Latitud ${lat}, Longitud ${lon}`;
+
+        const map = L.map('map').setView([lat, lon], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.marker([lat, lon]).addTo(map).bindPopup('¡Aquí estás!').openPopup();
+    }
+
+    function mostrarError() {
+        document.getElementById("ubicacion").innerText = "No se pudo obtener la ubicación.";
+    }
+
+    function saveData(){
+        // Guardar todos los campos en localStorage
+        const fields = [
+            "nombre",
+            "email",
+            "password",
+            "fechaNacimiento",
+            "telefono",
+            "website",
+            "color",
+            "experiencia",
+            "registro",
+            "codigo"
+        ];
+
+        fields.forEach(id => {
+            const value = document.getElementById(id).value;
+            localStorage.setItem(id, value);
+        });
+
+        // Redirigir a mensaje.html
+        window.location.href = "mensaje.html";
+    }
+</script>
+</html>
