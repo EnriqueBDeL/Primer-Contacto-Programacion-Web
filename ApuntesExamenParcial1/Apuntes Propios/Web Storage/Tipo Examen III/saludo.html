@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página 2 - El Saludo</title>
+</head>
+<body>
+
+    <h1 id="mensajeFinal">Cargando saludo...</h1>
+    
+    <br><br>
+    <a href="index.html">Volver a la primera página</a>
+
+    <script>
+        // Esto se ejecuta automáticamente nada más abrir este archivo HTML
+        window.onload = function() {
+            // 1. Buscamos el nombre en el LocalStorage usando la misma clave ("nombreSecreto")
+            let nombreRecuperado = localStorage.getItem("nombreSecreto");
+            
+            // 2. Comprobamos si el dato existe
+            if (nombreRecuperado !== null) {
+                // Si existe, cambiamos el HTML del h1 para saludarle
+                document.getElementById("mensajeFinal").innerHTML = "¡Hola, " + nombreRecuperado + "! Has llegado a la segunda página.";
+            } else {
+                // Si alguien entra aquí directamente sin pasar por el index.html
+                document.getElementById("mensajeFinal").innerHTML = "No sé quién eres. ¡Vuelve atrás y escribe tu nombre!";
+            }
+        };
+    </script>
+
+</body>
+</html>

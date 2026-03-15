@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página 1 - Formulario</title>
+</head>
+<body>
+
+    <h1>Identifícate</h1>
+    <p>Escribe tu nombre y te saludaré en otra página.</p>
+
+    <label for="nombreUsuario">Tu nombre:</label>
+    <input type="text" id="nombreUsuario" placeholder="Ej: Carlos" required>
+    
+    <button onclick="guardarYContinuar()">Ir a la página de saludo</button>
+
+    <script>
+        function guardarYContinuar() {
+            // 1. Capturamos lo que ha escrito el usuario
+            let nombre = document.getElementById("nombreUsuario").value;
+            
+            // Comprobamos que no haya dejado el campo vacío
+            if (nombre !== "") {
+                // 2. Lo guardamos en el LocalStorage
+                localStorage.setItem("nombreSecreto", nombre);
+                
+                // 3. LA MAGIA: Redirigimos al usuario a la segunda página
+                window.location.href = "saludo.html";
+            } else {
+                alert("Por favor, escribe un nombre antes de continuar.");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Completo - Examen</title>
+</head>
+<body>
+
+    <h1>Perfil de Usuario</h1>
+    <p id="mensajeBienvenida">Por favor, introduce tus datos para registrarte.</p>
+
+    <form id="formularioRegistro" onsubmit="guardarDatos(event)">
+        <fieldset>
+            <legend>Tus Datos Personales</legend>
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required><br><br>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" required><br><br>
+
+            <label>Género:</label><br>
+            <input type="radio" id="genMujer" name="genero" value="Mujer" required>
+            <label for="genMujer">Mujer</label><br>
+            
+            <input type="radio" id="genHombre" name="genero" value="Hombre">
+            <label for="genHombre">Hombre</label><br>
+            
+            <input type="radio" id="genOtro" name="genero" value="Otro">
+            <label for="genOtro">Otro</label><br><br>
+
+            <label for="fechaNac">Fecha de nacimiento:</label>
+            <input type="date" id="fechaNac" required><br><br>
+
+            <button type="submit">Guardar Datos</button>
+            <button type="button" onclick="borrarDatos()">Borrar Todo</button>
+        </fieldset>
+    </form>
+
+    <script>
+        // 1. CARGAR DATOS (Si existen al abrir la página)
+        window.onload = function() {
+            let nombreGuardado = localStorage.getItem("userNombre");
+            
+            // Si hay un nombre, significa que hay datos guardados
+            if (nombreGuardado != null) {
+                // Rellenamos los campos de texto y fecha
+                document.getElementById("nombre").value = nombreGuardado;
+                document.getElementById("apellidos").value = localStorage.getItem("userApellidos");
+                document.getElementById("fechaNac").value = localStorage.getItem("userFecha");
+                
+                // Para marcar el radio button correcto, buscamos el que coincida con el valor guardado
+                let generoGuardado = localStorage.getItem("userGenero");
+                if (generoGuardado) {
+                    document.querySelector(`input[name="genero"][value="${generoGuardado}"]`).checked = true;
+                }
+                
+                // Actualizamos el mensaje
+                document.getElementById("mensajeBienvenida").innerHTML = "¡Qué bueno verte de nuevo, " + nombreGuardado + "!";
+            }
+        };
+
+        // 2. GUARDAR DATOS (Al pulsar el botón "Guardar Datos")
+        function guardarDatos(event) {
+            // Esto evita que la página se recargue sola al enviar el formulario
+            event.preventDefault(); 
+            
+            // Recogemos los valores
+            let nombre = document.getElementById("nombre").value;
+            let apellidos = document.getElementById("apellidos").value;
+            let fecha = document.getElementById("fechaNac").value;
+            
+            // Truco de JS para saber qué radio button está marcado
+            let genero = document.querySelector('input[name="genero"]:checked').value;
+            
+            // Guardamos cada cosa en su cajón del Web Storage
+            localStorage.setItem("userNombre", nombre);
+            localStorage.setItem("userApellidos", apellidos);
+            localStorage.setItem("userGenero", genero);
+            localStorage.setItem("userFecha", fecha);
+            
+            document.getElementById("mensajeBienvenida").innerHTML = "¡Datos guardados con éxito, " + nombre + "!";
+            alert("Tus datos están seguros en el LocalStorage.");
+        }
+
+        // 3. BORRAR DATOS (Al pulsar "Borrar Todo")
+        function borrarDatos() {
+            // Borramos todas las claves de la memoria
+            localStorage.removeItem("userNombre");
+            localStorage.removeItem("userApellidos");
+            localStorage.removeItem("userGenero");
+            localStorage.removeItem("userFecha");
+            
+            // Vaciamos el formulario visualmente usando reset()
+            document.getElementById("formularioRegistro").reset();
+            
+            // Restauramos el mensaje inicial
+            document.getElementById("mensajeBienvenida").innerHTML = "Tus datos han sido eliminados. Por favor, introduce tus datos para registrarte.";
+        }
+    </script>
+
+</body>
+</html>

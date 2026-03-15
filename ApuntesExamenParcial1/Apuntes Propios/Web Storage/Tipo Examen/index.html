@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen - Web Storage Completo</title>
+</head>
+<body>
+
+    <h1>Bienvenido a la Web</h1>
+
+    <p id="mensajeSaludo">Aún no nos has dicho tu nombre.</p>
+
+    <fieldset>
+        <legend>Tus Datos</legend>
+        
+        <label for="nombreUsuario">Introduce tu nombre:</label>
+        <input type="text" id="nombreUsuario" placeholder="Ej: María">
+        <br><br>
+
+        <button onclick="guardarDatos()">Guardar Nombre</button>
+        <button onclick="borrarDatos()">Borrar Datos</button>
+    </fieldset>
+
+    <script>
+        // 1. LEER DATOS (getItem) - Se ejecuta al abrir la página
+        window.onload = function() {
+            let nombreGuardado = localStorage.getItem("nombreExamen");
+            
+            // Si el nombre existe en la memoria, cambiamos el mensaje de saludo
+            if (nombreGuardado != null) {
+                document.getElementById("mensajeSaludo").innerHTML = "¡Hola de nuevo, " + nombreGuardado + "!";
+            }
+        };
+
+        // 2. GUARDAR DATOS (setItem) - Se ejecuta al pulsar "Guardar"
+        function guardarDatos() {
+            let nombre = document.getElementById("nombreUsuario").value;
+            
+            // Guardamos el nombre en el Web Storage con la clave "nombreExamen"
+            localStorage.setItem("nombreExamen", nombre);
+            
+            // Actualizamos el texto de la pantalla directamente
+            document.getElementById("mensajeSaludo").innerHTML = "¡Datos guardados! Hola, " + nombre + "!";
+        }
+
+        // 3. BORRAR DATOS (removeItem) - Se ejecuta al pulsar "Borrar"
+        function borrarDatos() {
+            // Eliminamos específicamente el dato "nombreExamen" de la memoria
+            localStorage.removeItem("nombreExamen");
+            
+            // Vaciamos la caja de texto y ponemos el mensaje por defecto
+            document.getElementById("nombreUsuario").value = "";
+            document.getElementById("mensajeSaludo").innerHTML = "Tus datos han sido borrados. Aún no nos has dicho tu nombre.";
+        }
+    </script>
+
+</body>
+</html>
