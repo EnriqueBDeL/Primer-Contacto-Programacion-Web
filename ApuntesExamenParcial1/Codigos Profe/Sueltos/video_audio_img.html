@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Avanzado de Multimedia en HTML5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        figure {
+            display: inline-block;
+            margin: 20px;
+        }
+        figcaption {
+            font-style: italic;
+            font-size: 14px;
+            color: #555;
+        }
+        video, audio {
+            margin-top: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ejemplo Avanzado de Multimedia en HTML5</h1>
+
+    <!-- Imagen con descripción -->
+    <h2>Imagen con Figure y Figcaption</h2>
+    <figure>
+        <img src="imagen.jpg" alt="Paisaje hermoso" width="400">
+        <figcaption>Un paisaje hermoso al atardecer.</figcaption>
+    </figure>
+
+    <!-- Imagen adaptable con art direction -->
+    <h2>Imagen Adaptable con Picture y Art Direction</h2>
+    <picture>
+        <source srcset="imagen-movil.jpg" media="(max-width: 600px)">
+        <source srcset="imagen-tablet.jpg" media="(max-width: 1200px)">
+        <source srcset="imagen-desktop.jpg" media="(min-width: 1201px)">
+        <img src="imagen-default.jpg" alt="Imagen que cambia según el dispositivo">
+    </picture>
+
+    <!-- Video con subtítulos y poster -->
+    <h2>Video con Subtítulos y Poster</h2>
+    <video controls width="600" poster="poster.jpg">
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        <track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español">
+        <track src="subtitulos-en.vtt" kind="subtitles" srclang="en" label="English">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+
+    <!-- Audio con reproducción automática, loop y volumen controlado -->
+    <h2>Audio con Controles Avanzados</h2>
+    <audio controls autoplay loop>
+        <source src="audio.mp3" type="audio/mpeg">
+        <source src="audio.ogg" type="audio/ogg">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+</body>
+</html>

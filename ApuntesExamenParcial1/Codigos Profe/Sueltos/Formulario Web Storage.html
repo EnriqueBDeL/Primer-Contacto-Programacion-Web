@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con LocalStorage y SessionStorage</title>
+
+   
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                text-align: center;
+            }
+            table {
+                width: 80%;
+                margin: 20px auto;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 10px;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            caption {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+        </style>
+
+</head>
+
+<body>
+    <form id="userForm">
+        <label>Nombre-LS: <input type="text" id="name"></label><br>
+        <label>Email-SS: <input type="email" id="email"></label><br>
+        <button type="button" id="saveData">Guardar</button>
+    </form>
+    <button id="clearStorage">Limpiar datos</button>
+
+
+
+    <h1>Diferencias entre localStorage y sessionStorage</h1>
+
+    <table>
+        <caption>Comparación de localStorage y sessionStorage</caption>
+        <thead>
+            <tr>
+                <th>Característica</th>
+                <th>localStorage</th>
+                <th>sessionStorage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Persistencia</strong></td>
+                <td>Los datos se guardan indefinidamente hasta que el usuario los elimine o el sitio web los borre.</td>
+                <td>Los datos solo existen mientras la pestaña del navegador esté abierta.</td>
+            </tr>
+            <tr>
+                <td><strong>Alcance</strong></td>
+                <td>Disponible en todas las pestañas del mismo dominio.</td>
+                <td>Disponible solo en la pestaña donde se creó.</td>
+            </tr>
+            <tr>
+                <td><strong>Tamaño máximo</strong></td>
+                <td>Aproximadamente 5MB por dominio.</td>
+                <td>Aproximadamente 5MB por dominio.</td>
+            </tr>
+            <tr>
+                <td><strong>Ejemplo de uso</strong></td>
+                <td>Guardar configuraciones del usuario, temas, historial de formularios, carritos de compra.</td>
+                <td>Guardar datos temporales, información de sesión, formularios en proceso.</td>
+            </tr>
+            <tr>
+                <td><strong>¿Se borra al cerrar el navegador?</strong></td>
+                <td>❌ No</td>
+                <td>✅ Sí</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Recuperar datos guardados al cargar la página
+        document.getElementById("name").value = localStorage.getItem("name") || "";
+        document.getElementById("email").value = sessionStorage.getItem("email") || "";
+
+        // Guardar en localStorage (persiste después de cerrar el navegador)
+        document.getElementById("name").addEventListener("input", (e) => {
+            localStorage.setItem("name", e.target.value);
+        });
+
+        // Guardar en sessionStorage (se borra al cerrar la pestaña)
+        document.getElementById("email").addEventListener("input", (e) => {
+            sessionStorage.setItem("email", e.target.value);
+        });
+
+        // Botón de limpiar datos
+        document.getElementById("clearStorage").addEventListener("click", () => {
+            localStorage.clear();  // Borra datos permanentes
+            sessionStorage.clear(); // Borra datos de la sesión
+            location.reload();
+        });
+
+        // Botón de guardar (solo para mostrar un mensaje)
+        document.getElementById("saveData").addEventListener("click", () => {
+            alert("Datos guardados:\n" + 
+                  "Nombre (LocalStorage): " + localStorage.getItem("name") + "\n" +
+                  "Email (SessionStorage): " + sessionStorage.getItem("email"));
+        });
+    </script>
+</body>
+</html>
+
+
+
