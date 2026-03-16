@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clase de Patrones (Regex) - Examen</title>
+</head>
+
+<!--pattern sirve para hacer Validaciones con Expresiones Regulares (Regex) directamente en HTML,
+ sin necesidad de programar nada en JavaScript. Le pones una regla matemática estricta a tu caja de texto,
+ y si el usuario no la cumple, el navegador bloquea el botón de enviar y muestra un mensaje de error. -->
+
+<body>
+
+    <h1>Validaciones Estrictas con Pattern</h1>
+    <p>Intenta enviar el formulario con datos incorrectos para ver la magia de HTML5.</p>
+
+    <form onsubmit="event.preventDefault(); alert('¡Todo correcto! Formulario enviado.');">
+        
+        <fieldset>
+            <legend>Formatos Obligatorios</legend>
+
+            <label for="codigo">Código UCAM (3 letras mayúsculas, un guion, 4 números):</label><br>
+            <input type="text" id="codigo" 
+                   pattern="[A-Z]{3}-[0-9]{4}" 
+                   title="Debe tener el formato ABC-1234" 
+                   placeholder="ABC-1234" required>
+            <br><br>
+
+            <label for="dni">DNI (8 números y 1 letra):</label><br>
+            <input type="text" id="dni" 
+                   pattern="[0-9]{8}[A-Za-z]{1}" 
+                   title="Introduce 8 números seguidos de una letra (sin espacios ni guiones)" 
+                   placeholder="12345678Z" required>
+            <br><br>
+
+            <label for="telefono">Teléfono (Exactamente 9 números):</label><br>
+            <input type="tel" id="telefono" 
+                   pattern="[0-9]{9}" 
+                   title="Debe contener exactamente 9 dígitos numéricos" 
+                   placeholder="600123456" required>
+            <br><br>
+
+            <button type="submit">Enviar Formulario</button>
+        </fieldset>
+
+    </form>
+
+</body>
+
+
+
+</html>
