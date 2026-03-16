@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Concierto - Microdata Avanzado</title>
+</head>
+<body>
+
+    <h1>Próximos Conciertos</h1>
+
+    // PASO 1 EN SCHEMA.ORG: Buscamos "MusicEvent".
+    // La documentación nos dice que es un tipo principal.
+    // Por lo tanto, abrimos el contenedor principal con itemscope e itemtype.
+    <article itemscope itemtype="https://schema.org/MusicEvent">
+        
+        // PASO 2: Miramos la tabla de propiedades de MusicEvent.
+        // Vemos la propiedad "name". El tipo esperado es "Text".
+        // Como es texto simple, lo ponemos directamente en una etiqueta <h2>.
+        <h2 itemprop="name">Festival Rock 2026</h2>
+
+        // Buscamos "startDate" (Fecha de inicio). Tipo esperado: "Date" o "DateTime".
+        // Usamos el atributo 'content' para darle a Google la fecha en formato máquina (ISO),
+        // mientras que el humano lee la fecha normal en español.
+        <p>Fecha: <time itemprop="startDate" content="2026-07-15T20:00">15 de Julio de 2026 a las 20:00</time></p>
+
+        // Buscamos "description". Tipo esperado: "Text".
+        <p itemprop="description">El mayor festival de rock del verano con las mejores bandas del momento.</p>
+
+        <hr>
+
+        // PASO 3 (LA TRAMPA): Buscamos la propiedad "location" (Ubicación).
+        // ¡Ojo! El tipo esperado NO es texto, es un objeto "Place" (Lugar).
+        // Por tanto, abrimos una nueva capa (Matrioshka) con su propio itemscope e itemtype.
+        <section itemprop="location" itemscope itemtype="https://schema.org/Place">
+            <h3>Ubicación</h3>
+            
+            // Dentro de "Place", la tabla nos dice que podemos usar "name" y "address"
+            <p>Recinto: <span itemprop="name">Estadio Olímpico</span></p>
+            
+            // "address" espera un objeto "PostalAddress", abrimos otra capa más
+            <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                Dirección: 
+                <span itemprop="streetAddress">Avenida de los Deportes s/n</span>, 
+                <span itemprop="addressLocality">Madrid</span>, 
+                <span itemprop="postalCode">28022</span>
+            </p>
+        </section>
+
+        <hr>
+
+        // Buscamos la propiedad "performer" (Artista).
+        // El tipo esperado es "MusicGroup" (Grupo musical) o "Person" (Persona).
+        // Abrimos una nueva capa.
+        <section itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup">
+            <h3>Artista Principal</h3>
+            
+            // Dentro de MusicGroup usamos la propiedad "name" (Texto)
+            <p>Banda: <strong itemprop="name">Los Decibelios</strong></p>
+        </section>
+
+        <hr>
+
+        // Buscamos "offers" (Ofertas/Entradas).
+        // El tipo esperado es "Offer". Otra capa más.
+        <section itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <h3>Entradas</h3>
+            
+            // Dentro de Offer, usamos "price" (Número) y "priceCurrency" (Texto)
+            <p>Precio: <span itemprop="price">45.50</span> <span itemprop="priceCurrency">EUR</span></p>
+            
+            // "url" espera una URL. Lo ponemos en un enlace <a>
+            <p><a itemprop="url" href="https://ejemplo.com/entradas">Comprar Entradas Aquí</a></p>
+        </section>
+
+    </article>
+
+</body>
+</html>
