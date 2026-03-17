@@ -1,0 +1,101 @@
+/* Fuente externa [cite: 60] */
+@font-face {
+    font-family: 'FuenteExamen';
+    src: local('Courier'); 
+}
+
+/* Diseño general */
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: sans-serif;
+}
+
+/* Bordes redondeados en capas estructurales  */
+header, nav, #contenedor-columnas, aside, main, footer {
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* ---------------- COLORES DE LA FOTO ---------------- */
+header {
+    background-color: #ff7f50; /* Naranja */
+    color: white;
+    text-align: center;
+}
+
+nav {
+    background-color: #00e5ff; /* Cian */
+}
+
+#menu-izquierdo {
+    background-color: #fdfd96; /* Amarillo */
+    width: 25%;
+}
+
+main {
+    background-color: #ffffff; /* Blanco */
+    border: 1px solid #ccc;
+    flex: 1;
+}
+
+#menu-derecho {
+    background-color: #77dd77; /* Verde */
+    width: 25%;
+    font-family: 'FuenteExamen', monospace; /* Fuente externa [cite: 60] */
+}
+
+footer {
+    background-color: #ff66ff; /* Magenta */
+    color: white;
+    text-align: center;
+}
+/* ---------------------------------------------------- */
+
+/* Sombra en el encabezado  */
+header h1 {
+    text-shadow: 2px 2px 4px #444;
+}
+
+/* Menú horizontal  */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Quitar padding al contenedor de columnas para evitar doble margen */
+#contenedor-columnas {
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+/* Dos columnas en el texto  */
+.dos-columnas {
+    column-count: 2;
+    column-gap: 20px;
+    text-align: justify;
+}
+
+/* Formulario ordenado */
+form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+form input {
+    display: block;
+    width: 90%;
+    margin-top: 5px;
+    padding: 5px;
+}

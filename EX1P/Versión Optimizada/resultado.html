@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado del Formulario</title>
+</head>
+<body>
+    <main>
+        <h1>Datos Guardados en Web Storage</h1>
+        <ul id="lista-datos"></ul>
+        <a href="index.html">Volver al examen</a>
+    </main>
+
+    <script>
+        const campos = ["nombre", "email", "url", "numero", "telefono", "fecha", "busqueda"];
+        const lista = document.getElementById("lista-datos");
+
+        campos.forEach(campo => {
+            if(localStorage.getItem(campo)) {
+                let li = document.createElement("li");
+                li.innerHTML = `<strong>${campo}:</strong> ${localStorage.getItem(campo)}`;
+                lista.appendChild(li);
+            }
+        });
+    </script>
+</body>
+</html>
