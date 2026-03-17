@@ -1,0 +1,99 @@
+/* Permite que el layout pueda ocupar el alto completo del viewport */
+html,
+body {
+    height: 100%;
+}
+
+/* Configuración general del documento y distribución vertical */
+body {
+    font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+    font-size: 100%;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bloques principales a ancho completo */
+#cabecera,
+#menu-principal,
+#zona-central,
+#pie {
+    width: 100%;
+    margin: 0;
+}
+
+/* Cabecera superior */
+#cabecera {
+    background-color: #d80d2f;
+    color: #ffffff;
+    text-align: center;
+    padding: 18px 0;
+}
+
+/* Barra de navegación principal */
+#menu-principal {
+    background-color: #f19028;
+}
+
+/* Centra horizontalmente los elementos del menú */
+#menu-principal ul {
+    text-align: center;
+}
+
+/* Muestra los enlaces del menú en línea */
+#menu-principal li {
+    display: inline-block;
+}
+
+/* Estilo visual de cada enlace */
+#menu-principal a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+}
+
+/* Zona central que crece para ocupar el alto disponible */
+#zona-central {
+    background-color: #ffc300;
+    overflow: hidden;
+    flex: 1;
+}
+
+/* Columna principal izquierda */
+#contenido-principal {
+    float: left;
+    width: 75%;
+    min-height: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* Tarjetas/article dentro del contenido principal */
+#contenido-principal article {
+    background-color: #8dc63f;
+    border: 2px solid #6ca32a;
+    margin-bottom: 12px;
+    padding: 12px;
+}
+
+/* Barra lateral derecha */
+#barra-lateral {
+    float: right;
+    width: 25%;
+    min-height: 100%;
+    background-color: #0a86d1;
+    color: #ffffff;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* Pie de página */
+#pie {
+    background-color: #7a1e91;
+    color: #ffffff;
+    text-align: center;
+    padding: 18px 0;
+    clear: both;
+}

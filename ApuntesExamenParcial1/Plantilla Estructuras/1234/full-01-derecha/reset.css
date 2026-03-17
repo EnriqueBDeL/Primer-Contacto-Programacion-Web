@@ -1,0 +1,16 @@
+/* Reinicio base: elimina márgenes, rellenos y bordes por defecto del navegador */
+html, body, h1, h2, p, ul, li, header, nav, section, article, aside, footer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Fuerza a que las etiquetas semánticas se comporten como bloques */
+header, nav, section, article, aside, footer {
+    display: block;
+}
+
+/* Quita las viñetas por defecto de las listas del menú */
+ul {
+    list-style: none;
+}

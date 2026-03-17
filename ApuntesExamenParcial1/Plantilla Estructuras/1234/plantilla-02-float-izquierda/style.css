@@ -1,0 +1,90 @@
+/* Estilos generales del documento */
+body {
+    font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+    font-size: 100%;
+    background-color: #f4f4f4;
+}
+
+/* Contenedor principal centrado y con ancho fijo */
+#cabecera,
+#menu-principal,
+#zona-central,
+#pie {
+    width: 960px;
+    margin: 0 auto;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+}
+
+/* Cabecera superior */
+#cabecera {
+    background-color: #d80d2f;
+    color: #ffffff;
+    text-align: center;
+    padding: 18px 0;
+}
+
+/* Barra de navegación principal */
+#menu-principal {
+    background-color: #f19028;
+}
+
+/* Centra horizontalmente los elementos del menú */
+#menu-principal ul {
+    text-align: center;
+}
+
+/* Muestra los enlaces del menú en línea */
+#menu-principal li {
+    display: inline-block;
+}
+
+/* Estilo visual de cada enlace */
+#menu-principal a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+}
+
+/* Zona central que contiene aside + contenido */
+#zona-central {
+    background-color: #ffc300;
+    overflow: hidden;
+}
+
+/* Barra lateral situada a la izquierda */
+#barra-lateral {
+    float: left;
+    width: 260px;
+    min-height: 220px;
+    background-color: #0a86d1;
+    color: #ffffff;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+/* Columna principal a la derecha */
+#contenido-principal {
+    float: right;
+    width: 700px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+/* Tarjetas/article dentro del contenido principal */
+#contenido-principal article {
+    background-color: #8dc63f;
+    border: 2px solid #6ca32a;
+    margin-bottom: 12px;
+    padding: 12px;
+}
+
+/* Pie de página al final del layout */
+#pie {
+    background-color: #7a1e91;
+    color: #ffffff;
+    text-align: center;
+    padding: 18px 0;
+    clear: both;
+}
