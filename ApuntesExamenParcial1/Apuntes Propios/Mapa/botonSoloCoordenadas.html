@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón: Solo coordenadas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1rem;
+        }
+
+        button {
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <h1>Ejemplo examen: botón que muestra solo coordenadas</h1>
+        <p>No dibuja mapa; solo imprime latitud y longitud de la ubicación actual.</p>
+
+        <button id="btnUbicacion">Obtener coordenadas</button>
+        <p id="resultado">Pulsa el botón para empezar.</p>
+    </article>
+
+    <script>
+        const boton = document.getElementById('btnUbicacion');
+        const resultado = document.getElementById('resultado');
+
+        boton.addEventListener('click', () => {
+            if (!navigator.geolocation) {
+                resultado.textContent = 'Tu navegador no soporta geolocalización.';
+                return;
+            }
+
+            resultado.textContent = 'Buscando ubicación...';
+
+            navigator.geolocation.getCurrentPosition(
+                (posicion) => {
+                    const lat = posicion.coords.latitude.toFixed(6);
+                    const lng = posicion.coords.longitude.toFixed(6);
+                    resultado.textContent = `Latitud: ${lat} | Longitud: ${lng}`;
+                },
+                (error) => {
+                    if (error.code === error.PERMISSION_DENIED) {
+                        resultado.textContent = 'Permiso de ubicación denegado.';
+                    } else {
+                        resultado.textContent = 'No se pudo obtener la ubicación.';
+                    }
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>

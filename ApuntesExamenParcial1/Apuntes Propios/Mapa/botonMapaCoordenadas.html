@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón: Mostrar mapa y coordenadas</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1rem;
+        }
+
+        #miMapa {
+            height: 420px;
+            width: 100%;
+            border: 2px solid #ccc;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        button {
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+        }
+
+        #salida {
+            margin-top: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <h1>Ejemplo examen: botón que muestra mapa y coordenadas</h1>
+        <p>Pulsa el botón y luego haz clic en el mapa para ver latitud y longitud.</p>
+
+        <button id="btnMostrar">Mostrar mapa</button>
+        <p id="salida">Coordenadas: (aún no seleccionadas)</p>
+
+        <section id="miMapa"></section>
+    </article>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const btnMostrar = document.getElementById('btnMostrar');
+        const salida = document.getElementById('salida');
+        const contenedorMapa = document.getElementById('miMapa');
+
+        let mapa;
+        let marcador;
+
+        btnMostrar.addEventListener('click', () => {
+            contenedorMapa.style.display = 'block';
+
+            if (!mapa) {
+                const centro = [37.99147366162, -1.1854730225148602];
+
+                mapa = L.map('miMapa').setView(centro, 13);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap'
+                }).addTo(mapa);
+
+                mapa.on('click', function (evento) {
+                    const lat = evento.latlng.lat.toFixed(6);
+                    const lng = evento.latlng.lng.toFixed(6);
+
+                    salida.textContent = `Coordenadas: Lat ${lat}, Lng ${lng}`;
+
+                    if (marcador) {
+                        marcador.setLatLng(evento.latlng);
+                    } else {
+                        marcador = L.marker(evento.latlng).addTo(mapa);
+                    }
+                });
+            }
+
+            mapa.invalidateSize();
+        });
+    </script>
+
+</body>
+</html>

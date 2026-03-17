@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globo sobre ubicación</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1rem;
+        }
+
+        #mapaGlobo {
+            height: 430px;
+            width: 100%;
+            border: 2px solid #ccc;
+            margin-top: 1rem;
+        }
+
+        button {
+            padding: 0.5rem 0.9rem;
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <h1>Ejemplo examen: globo con coordenadas o nombre</h1>
+        <p>Pulsa un botón para cambiar el contenido del globo del marcador.</p>
+
+        <button id="btnCoords">Mostrar coordenadas</button>
+        <button id="btnNombre">Mostrar nombre</button>
+
+        <section id="mapaGlobo"></section>
+    </article>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const ubicacion = [37.99147366162, -1.1854730225148602];
+
+        const mapa = L.map('mapaGlobo').setView(ubicacion, 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(mapa);
+
+        const marcador = L.marker(ubicacion).addTo(mapa);
+
+        function popupConCoordenadas() {
+            const lat = ubicacion[0].toFixed(6);
+            const lng = ubicacion[1].toFixed(6);
+            marcador.bindPopup(`Lat: ${lat}<br>Lng: ${lng}`).openPopup();
+        }
+
+        function popupConNombre() {
+            marcador.bindPopup('<b>Universidad / Punto de interés</b>').openPopup();
+        }
+
+        document.getElementById('btnCoords').addEventListener('click', popupConCoordenadas);
+        document.getElementById('btnNombre').addEventListener('click', popupConNombre);
+
+        popupConCoordenadas();
+    </script>
+
+</body>
+</html>
