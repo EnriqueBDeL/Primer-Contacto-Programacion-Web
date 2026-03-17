@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado - UCAM</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Datos Recibidos</h1>
+    </header>
+
+    <section class="contenedor-medio">
+        <main>
+            <h2>Resumen de información guardada</h2>
+            <article id="datos-almacenados" style="line-height: 2;">
+                </article>
+            <br>
+            <a href="index.html">Volver al formulario</a>
+        </main>
+    </section>
+
+    <footer>
+        <p>UCAM - Programación Web</p>
+    </footer>
+
+    <script>
+        const campos = ["nombre", "email", "url", "numero", "telefono", "fecha", "busqueda"];
+        const contenedor = document.getElementById("datos-almacenados");
+
+        campos.forEach(campo => {
+            const valor = localStorage.getItem(campo);
+            if (valor) {
+                const p = document.createElement("p");
+                p.innerHTML = `<strong>${campo.toUpperCase()}:</strong> ${valor}`;
+                contenedor.appendChild(p);
+            }
+        });
+    </script>
+</body>
+</html>

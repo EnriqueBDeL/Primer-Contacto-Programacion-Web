@@ -1,94 +1,84 @@
-/* style.css */
-
-/* 4. Fuente externa (@font-face) para el menú derecho */
+/* 1. Reset e Importación de Fuente */
 @font-face {
     font-family: 'FuenteExamen';
-    /* Si no tienes una fuente descargada, el navegador usará una de reserva, 
-       pero esto demuestra a la profe que sabes cómo se hace */
+    /* Referencia a fuente local según el enunciado */
     src: local('Courier New'), local('Courier'); 
 }
 
-/* 1 y 8. Estructura general y bordes redondeados */
+/* 2. Estructura y Bordes Redondeados (Puntos 1, 8 y 63) */
 body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espacio entre las capas estructurales (como en la foto) */
+    gap: 15px;
+    font-family: Arial, sans-serif;
 }
 
-/* Clases base para las cajas estructurales */
+/* Aplicamos bordes redondeados a todas las capas estructurales */
 header, nav, .contenedor-medio, aside, main, footer {
-    border-radius: 10px; /* 8. Bordes redondeados */
+    border-radius: 10px;
     padding: 20px;
 }
 
-/* 5. Encabezado con sombra en el texto */
+/* 3. Header con Sombra (Puntos 5 y 61) */
 header {
-    background-color: #ff7f50; /* Naranja */
+    background-color: #ff7f50;
     color: white;
-  text-align: center;
+    text-align: center;
 }
 
 header h1 {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra en el texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 5px;
 }
 
-/* 6. Lista como menú horizontal */
+/* 4. Menú Horizontal (Puntos 3 y 61) */
 nav {
-    background-color: #00e5ff; /* Cian */
-   
+    background-color: #00e5ff;
 }
 
 nav ul {
     list-style: none;
-    display: flex; /* Convierte la lista vertical en horizontal */
+    display: flex;
     justify-content: center;
-    gap: 20px;
-    
+    gap: 25px;
 }
 
 nav a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-
 }
 
-/* Estructura de 3 columnas del medio */
+/* 5. Layout de 3 Columnas (Punto 51) */
 .contenedor-medio {
     display: flex;
     gap: 15px;
-    padding: 0; /* Quitamos el padding al contenedor padre para dárselo a los hijos */
+    padding: 0;
 }
 
-/* 7. Colores como en la foto (pero legibles) */
 #izquierdo {
-    background-color: #fdfd96; /* Amarillo pastel */
+    background-color: #fdfd96;
     width: 25%;
 }
 
 main {
-    background-color: #f9f9f9; /* Blanco/Gris muy claro */
-    border: 1px solid #eee;
-    flex: 1; /* Ocupa el centro */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    flex: 1;
 }
 
 #derecho {
-    background-color: #77dd77; /* Verde claro */
+    background-color: #77dd77;
     width: 25%;
-    font-family: 'FuenteExamen', monospace; /* Aplicamos el @font-face aquí */
+    /* Aplicación de Fuente Externa (Punto 4 y 60) */
+    font-family: 'FuenteExamen', monospace;
 }
 
-footer {
-    background-color: #ff66ff; /* Magenta */
-    color: white;
-    text-align: center;
-}
-
-/* CSS para las 2 columnas del texto en el MAIN (HTML punto 5) */
+/* 6. Texto en Dos Columnas con Microdata (Punto 5 y 16) */
 .texto-columnas {
     column-count: 2;
-    column-gap: 20px;
+    column-gap: 25px;
     text-align: justify;
     margin-top: 15px;
 }
@@ -99,11 +89,44 @@ footer {
     margin-bottom: 10px;
 }
 
-/* Estilos básicos para el formulario */
+/* 7. Estilos del Formulario (Punto 17-25) */
+form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
 form input {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 4px;
+    width: 95%;
+    padding: 8px;
+    margin-top: 4px;
     border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* 8. Footer (Punto 4 y 14) */
+footer {
+    background-color: #ff66ff;
+    color: white;
+    text-align: center;
+}
+
+footer address {
+    font-style: normal;
+    margin-bottom: 5px;
 }

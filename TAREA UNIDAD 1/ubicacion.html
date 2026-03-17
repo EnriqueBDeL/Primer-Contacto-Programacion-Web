@@ -32,8 +32,7 @@
       }
 
       function success(position) {
-        x.innerHTML = "Latitud: " + position.coords.latitude +
-        "<br>Longitud: " + position.coords.longitude;
+        x.innerHTML = "Latitud: " + position.coords.latitude + "<br>Longitud: " + position.coords.longitude;
 
         const map = document.getElementById("mapa");
         const lat = position.coords.latitude;
