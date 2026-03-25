@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Charts and Graphs with the Canvas</title>
+<script type="text/javascript">
+var sampleData = [
+	{
+		label:"Profit",
+		value: 1200
+	},
+	{
+		label:"Expenses",
+		value: 800
+	},
+	{
+		label:"Budget",
+		value: 1000
+	}
+];
+window.onload = function()
+{
+	var canvas = document.getElementById('barGraph');
+	
+	if (canvas.getContext)
+	{
+		var ctx = canvas.getContext('2d');
+	}
+}
+</script>
+<style type="text/css">
+#barGraph
+{
+	border:1px solid black;
+}
+</style>
+</head>
+<body>
+<canvas id="barGraph" width="300" height="300"> </canvas>
+</body>
+</html>
