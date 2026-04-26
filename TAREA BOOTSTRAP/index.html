@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Navegacion principal">
+      <section class="container">
+        <a class="navbar-brand" href="#inicio">
+          <img src="Media/EB.avif" alt="Logotipo de mi Portfolio" width="30" height="24" class="d-inline-block align-text-top">
+          Mi Portfolio
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu de navegacion">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <section class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#sobre-mi">Sobre mi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#proyectos">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#habilidades">Habilidades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="bg-dark text-white text-center py-5 mt-5">
+      <section class="container py-5">
+        <h1 class="display-4 fw-bold">Hola, soy Desarrollador Web</h1>
+        <p class="lead mb-4">Construyendo soluciones digitales atractivas</p>
+        <a href="#proyectos" class="btn btn-primary btn-lg">Ver proyectos</a>
+      </section>
+    </section>
+
+   <section id="sobre-mi" class="py-5">
+  <section class="container">
+    <section class="row">
+      <article class="col-lg-10 mx-auto">
+        
+        <h2 class="fw-bold mb-4">Sobre mí</h2>
+        
+        <p class="lead">
+          ¡Hola! Soy Enrique, estudiante de <strong>Ingeniería Informática en la UCAM</strong>, apasionado por el mundo de las nuevas tecnologías y su capacidad para transformar nuestro día a día.
+        </p>
+        <p>
+          Mi curiosidad y entusiasmo por este campo me impulsan a estar siempre al tanto de las innovaciones que están dando forma al futuro. Mi objetivo es aplicar estos conocimientos para contribuir al desarrollo de tecnologías que no solo sean avanzadas, sino también accesibles y útiles para todos.
+        </p>
+        <p>
+          Me encuentro en constante aprendizaje y abierto a oportunidades que me permitan seguir creciendo y colaborando en proyectos que impulsen el progreso tecnológico.
+        </p>
+
+        <section class="mt-4">
+          <span class="badge rounded-pill bg-primary">Ingeniería Informática</span>
+          <span class="badge rounded-pill bg-secondary">Innovación</span>
+          <span class="badge rounded-pill bg-info text-dark">Aprendizaje Continuo</span>
+          <span class="badge rounded-pill bg-success">UCAM</span>
+        </section>
+
+      </article>
+    </section>
+  </section>
+</section>
+
+    <section id="proyectos" class="py-5 bg-light">
+  <section class="container py-4">
+    
+    <header class="text-center mb-5">
+      <h2 class="fw-bold">Mis Proyectos</h2>
+      <p class="text-muted">Algunos de los trabajos y prácticas que he desarrollado en GitHub.</p>
+    </header>
+
+    <section class="row g-4">
+      
+      <article class="col-md-4">
+        <article class="card h-100 shadow-sm border-0">
+          <img src="Media/1366_2000.jpg" class="card-img-top" alt="Práctica RMI en Java">
+          <section class="card-body d-flex flex-column">
+            <h3 class="card-title h5 fw-bold">Práctica RMI</h3>
+            <p class="card-text text-secondary mb-4">
+              Proyecto distribuido utilizando Java RMI (Remote Method Invocation) para establecer comunicación entre cliente y servidor.
+            </p>
+            <a href="https://github.com/EnriqueBDeL/Practica-RMI" target="_blank" class="btn btn-outline-primary mt-auto">Ver en GitHub</a>
+          </section>
+        </article>
+      </article>
+
+      <article class="col-md-4">
+        <article class="card h-100 shadow-sm border-0">
+          <img src="Media/019be26d62.webp" class="card-img-top" alt="Programación en C">
+          <section class="card-body d-flex flex-column">
+            <h3 class="card-title h5 fw-bold">Programación II (C)</h3>
+            <p class="card-text text-secondary mb-4">
+              Colección de códigos y lecciones en C utilizando Code::Blocks. Incluye implementaciones de estructuras de datos avanzadas como ficheros, colas y pilas.
+            </p>
+            <a href="https://github.com/EnriqueBDeL/Clases-Programacion-II" target="_blank" class="btn btn-outline-primary mt-auto">Ver en GitHub</a>
+          </section>
+        </article>
+      </article>
+
+      <article class="col-md-4">
+        <article class="card h-100 shadow-sm border-0">
+          <img src="Media/NVIDIA-logo.webp" class="card-img-top" alt="Programación Paralela OpenMP con NVIDIA">
+          <section class="card-body d-flex flex-column">
+            <h3 class="card-title h5 fw-bold">OpenMP en C</h3>
+            <p class="card-text text-secondary mb-4">
+              Lecciones y prácticas enfocadas en la programación paralela en C, haciendo uso de la librería OMP y ejecutado desde el entorno MobaXterm.
+            </p>
+            <a href="https://github.com/EnriqueBDeL/Clases-OMP-Programacion-Paralela-en-C" target="_blank" class="btn btn-outline-primary mt-auto">Ver en GitHub</a>
+          </section>
+        </article>
+      </article>
+
+    </section>
+  </section>
+</section>
+
+
+   <section id="habilidades" class="py-5">
+  <section class="container py-4">
+    
+    <header class="text-center mb-5">
+      <h2 class="fw-bold">Habilidades Técnicas</h2>
+      <p class="text-muted">Mis niveles de competencia en distintas tecnologías.</p>
+    </header>
+
+    <section class="row justify-content-center">
+      <article class="col-lg-8">
+        
+        <section class="mb-4">
+          <header class="d-flex justify-content-between mb-1">
+            <span class="fw-bold">HTML5 <span class="badge bg-success ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Maquetación semántica y accesible">Alto</span></span>
+            <span class="text-muted">70%</span>
+          </header>
+          <section class="progress" style="height: 15px;">
+            <section class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></section>
+          </section>
+        </section>
+
+        <section class="mb-4">
+          <header class="d-flex justify-content-between mb-1">
+            <span class="fw-bold">CSS3 & Bootstrap <span class="badge bg-info text-dark ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Diseño Responsive sin CSS extra">Medio</span></span>
+            <span class="text-muted">50%</span>
+          </header>
+          <section class="progress" style="height: 15px;">
+            <section class="progress-bar bg-info" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></section>
+          </section>
+        </section>
+
+        <section class="mb-4">
+          <header class="d-flex justify-content-between mb-1">
+            <span class="fw-bold">JavaScript <span class="badge bg-warning text-dark ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Interactividad y manipulación del DOM">Basico</span></span>
+            <span class="text-muted">30%</span>
+          </header>
+          <section class="progress" style="height: 15px;">
+            <section class="progress-bar bg-warning" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></section>
+          </section>
+        </section>
+
+        <section class="mb-4">
+          <header class="d-flex justify-content-between mb-1">
+            <span class="fw-bold">C & Java <span class="badge bg-primary ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Programación paralela y sistemas distribuidos">Alto</span></span>
+            <span class="text-muted">80%</span>
+          </header>
+          <section class="progress" style="height: 15px;">
+            <section class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></section>
+          </section>
+        </section>
+
+      </article>
+    </section>
+
+  </section>
+</section>
+
+    <section id="contacto" class="py-5 bg-light">
+  <section class="container py-4">
+    
+    <header class="mb-5 text-center">
+      <h2 class="fw-bold">Contacto</h2>
+    </header>
+
+    <section class="row justify-content-center">
+      <article class="col-lg-6 col-md-8">
+        
+        <form action="#" method="POST">
+          
+          <section class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Tu nombre completo" required>
+          </section>
+
+          <section class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+          </section>
+
+          <section class="mb-4">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea class="form-control" id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          </section>
+
+          <button type="submit" class="btn btn-primary px-4">Enviar</button>
+
+        </form>
+
+      </article>
+    </section>
+
+  </section>
+</section>
+
+  </main>
+
+<footer class="bg-dark text-white py-4 mt-5">
+  <section class="container text-center">
+    
+    <p class="mb-2">&copy;2026 Mi Portfolio | Enrique Braquehais De Lara</p>
+    <p class="mb-3">
+      Contacto: 
+      <a href="mailto:tu-email@ucam.edu" class="text-white text-decoration-none border-bottom border-secondary">
+        enriquebdl@ucam.edu
+      </a>
+    </p>
+
+    <nav class="d-flex justify-content-center gap-4">
+      <a href="https://github.com/EnriqueBDeL" class="text-white fs-2" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="bi bi-github"></i>
+      </a>
+      
+      <a href="https://es.linkedin.com/in/enrique-braquehais-de-lara-6140a1268" class="text-white fs-2" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+      </a>
+    </nav>
+
+  </section>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>
