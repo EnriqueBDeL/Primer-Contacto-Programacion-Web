@@ -1,12 +1,15 @@
+
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    /* grid-template-columns: repeat(2,50vw); */
-
-    grid-template-rows: auto 85vh ;
+    
+   
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    
+    grid-template-rows: auto 85vh;
     padding: 10px;
-    column-gap: 20px;
-    row-gap: 20px;
+    
+    gap: 20px;
+    align-items: stretch;
 }
 
 .grid-item {
@@ -14,26 +17,30 @@
     border: 1px solid rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px;
-    font-size: 30px;
     text-align: center;
     font-size: 20px;
     overflow-y: auto;
 }
 
-img{
+img {
     width: 150px;
     height: 200px;
 }
+
 
 .wrapper {
     margin-top: 150px;
     margin-bottom: 150px;
     
     display: grid;
-    grid-gap: 10px;
+    gap: 10px;
     
-    /* grid-template-columns: repeat(3,50fr); */
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
+
+
+    grid-template-areas: 
+      "cajaA cajaA cajaB"
+      "cajaC cajaD cajaB";
 
     background-color: #fff;
     color: #000000;
@@ -48,17 +55,17 @@ img{
 }
 
 .a {
-    grid-column: 1 / span 2;
+    grid-area: cajaA;
 }
+
 .b {
-    grid-column: 3 ;
-    grid-row: 1 / span 2;
+    grid-area: cajaB;
 }
+
 .c {
-    grid-column: 1 ;
-    grid-row: 2 ;
+    grid-area: cajaC;
 }
+
 .d {
-    grid-column: 2 ;
-    grid-row: 2 ;
+    grid-area: cajaD;
 }
