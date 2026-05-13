@@ -1,15 +1,31 @@
 <?php
-session_start();
+    session_start();
 
-$usuario = $_POST['usuario'];
-$password = $_POST['password'];
+    ConsultarUsuario($_POST['usuario'], $_POST['password']);
 
-if ($usuario === "admin" && $password === "admin") {
-    $_SESSION['logeado'] = true;
-    header("Location: listar.php");
-    exit;
-} else {
-    echo "Usuario o contraseña incorrectos. <br><br>";
-    echo "<a href='login.php'>Volver al login</a>";
-}
+    function ConsultarUsuario($usuario, $password)
+    {
+        include 'conexion.php';
+        $sentencia = "SELECT * FROM usuario WHERE nombre = '" . $usuario . "' AND contraseña = '" . $password . "'";
+        $resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+
+        $count = mysqli_num_rows($resultado);
+
+        if ($count > 0)
+        {
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['logeado'] = true;
+            echo '<script>';
+                echo 'alert("Bienvenido!!");';
+                echo 'window.location.href="listar.php";';
+            echo '</script>';
+        }
+        else
+        {
+            echo '<script>';
+                echo 'alert("Datos de acceso incorrectos");';
+                echo 'window.location.href="login.php";';
+            echo '</script>';
+        }
+    }
 ?>

@@ -1,35 +1,30 @@
 <?php
-session_start();
-session_destroy();
-?>
+    session_start();
 
-<!DOCTYPE html>
-<html lang="es">
+    ConsultarUsuario($_POST['inputUsuario'], $_POST['inputPassword']);
 
-<head>
-    <title>Login</title>
-    <script>
-        function validarFormulario() {
-            var usu = document.getElementById("usuario").value;
-            var pass = document.getElementById("password").value;
-            if (usu === "" || pass === "") {
-                alert("El usuario y el password no pueden estar vacíos.");
-                return false;
-            }
-            return true;
+    function ConsultarUsuario($usuario, $password)
+    {
+        include 'conexion.php';
+        $sentencia = "SELECT * FROM usuario WHERE nombre = '" . $usuario . "' AND contraseña = '" . $password . "'";
+        $resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
+
+        $count = mysqli_num_rows($resultado);
+
+        if ($count > 0)
+        {
+            $_SESSION['usuario'] = $usuario;
+            echo '<script>';
+                echo 'alert("Bienvenido!!");';
+                echo 'window.location.href="listar.php";';
+            echo '</script>';
         }
-    </script>
-</head>
-
-
-<body>
-    <h2>Acceso al sistema</h2>
-    <form action="validar.php" method="POST" onsubmit="return validarFormulario()">
-        Usuario: <input type="text" id="usuario" name="usuario"><br><br>
-        Password: <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Entrar">
-    </form>
-</body>
-
-
-</html>
+        else
+        {
+            echo '<script>';
+                echo 'alert("Datos de acceso incorrectos");';
+                echo 'window.location.href="index.php";';
+            echo '</script>';
+        }
+    }
+?>
