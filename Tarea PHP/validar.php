@@ -6,7 +6,7 @@
     function ConsultarUsuario($usuario, $password)
     {
         include 'conexion.php';
-        $sentencia = "SELECT * FROM usuario WHERE nombre = '" . $usuario . "' AND contraseña = '" . $password . "'";
+        $sentencia = "SELECT * FROM Usuarios WHERE Nombre = '" . $usuario . "' AND Contraseña = '" . $password . "'";
         $resultado = $conexion->query($sentencia) or die("Error al comprobar usuario: " . mysqli_error($conexion));
 
         $count = mysqli_num_rows($resultado);

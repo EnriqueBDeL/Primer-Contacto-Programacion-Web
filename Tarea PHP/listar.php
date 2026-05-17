@@ -17,8 +17,9 @@ include("conexion.php");
 </head>
 <body>
     <section style="text-align: right;">
-        <a href="login.php">Volver al login</a>
+        <a href="login.php">Cerrar sesión (Volver al login)</a>
     </section>
+    
     <h2>Listado de clientes</h2>
     <table border="1">
         <tr>
