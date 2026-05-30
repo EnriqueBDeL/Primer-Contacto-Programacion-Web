@@ -1,0 +1,64 @@
+Control de Hangares y Aviones
+Contexto:
+La base aérea necesita controlar los cazas, pero ahora están organizados por Hangares. El sistema tendrá 3 tablas: una para los usuarios (personal), otra para los hangares y una tercera para los aviones, que estará vinculada al hangar donde está aparcado mediante una clave foránea (Foreign Key).
+
+Los Comandantes pueden gestionar el CRUD completo de aviones, y los Mecánicos solo pueden leer la tabla.
+
+1. Preparación de la Base de Datos (base_aerea)
+Ejecuta esto en tu PhpMyAdmin. Fíjate cómo la tabla aviones tiene un id_hangar que se vincula con la tabla hangares.
+
+
+-- TABLA 1: El Login
+CREATE TABLE personal (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    clave VARCHAR(50) NOT NULL,
+    rango VARCHAR(20) NOT NULL
+);
+
+INSERT INTO personal (usuario, clave, rango) VALUES 
+('Maverick', 'topgun', 'Comandante'),
+('Goose', 'radar', 'Mecanico');
+
+-- TABLA 2: La tabla "Padre" (Para la clave foránea)
+CREATE TABLE hangares (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    ubicacion VARCHAR(50) NOT NULL
+);
+
+INSERT INTO hangares (id, nombre, ubicacion) VALUES 
+(1, 'Hangar Alfa', 'Pista Norte'),
+(2, 'Hangar Bravo', 'Pista Sur');
+
+-- TABLA 3: La tabla del CRUD (con clave foránea)
+CREATE TABLE aviones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    modelo VARCHAR(50) NOT NULL,
+    matricula VARCHAR(20) NOT NULL,
+    id_hangar INT NOT NULL,
+    CONSTRAINT fk_hangar_avion FOREIGN KEY (id_hangar) REFERENCES hangares(id)
+);
+
+INSERT INTO aviones (modelo, matricula, id_hangar) VALUES 
+('F-14 Tomcat', 'USN-001', 1),
+('F/A-18 Hornet', 'USN-002', 2);
+
+
+
+
+Tu misión:
+
+El Login (login.php y validar.php): Igual que siempre. Entras, guardas el rango en la sesión y rediriges a panel.php.
+
+El Listado con "JOIN" (panel.php): En la tabla donde pintas los aviones, no debes mostrar el número del hangar (ej: "1"), sino el nombre del hangar (ej: "Hangar Alfa").
+
+Pista de tu profe: Para lograrlo, tu consulta SQL del listado debe unir las dos tablas así: SELECT a.id, a.modelo, a.matricula, h.nombre AS nombre_hangar FROM aviones a, hangares h WHERE a.id_hangar = h.id.
+
+El Formulario Dinámico (registrar.php): Al crear un avión nuevo, el usuario no debe escribir el ID del hangar a mano. Debes mostrar un desplegable <select name="id_hangar">.
+
+Pista de tu profe: Dentro del <select>, debes hacer un SELECT * FROM hangares con PHP y un while para ir pintando etiquetas <option value="1">Hangar Alfa</option>.
+
+Guardar el avión (guardar.php): Recibes el id_hangar por $_POST y haces el INSERT INTO aviones (modelo, matricula, id_hangar) VALUES (...).
+
+Borrar (borrar.php): Igual que siempre, cogiendo el ID del avión por la URL.

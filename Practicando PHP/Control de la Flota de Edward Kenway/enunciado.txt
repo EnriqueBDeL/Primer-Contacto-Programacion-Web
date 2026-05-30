@@ -1,0 +1,40 @@
+La Flota de Edward Kenway (Assassin's Creed)
+
+Contexto:
+Edward Kenway necesita gestionar los barcos que va capturando y añadiendo a la flota del Jackdaw. El sistema tiene dos rangos: el Capitán (puede gestionar todo) y el Contramaestre (solo puede ver los barcos disponibles para informar a la tripulación).
+
+
+Base de Datos (flota_kenway):
+
+CREATE TABLE tripulacion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    alias VARCHAR(50) NOT NULL,
+    clave VARCHAR(50) NOT NULL,
+    rango VARCHAR(20) NOT NULL
+);
+
+INSERT INTO tripulacion (alias, clave, rango) VALUES 
+('Edward', 'oro', 'Capitan'),
+('Adewale', 'ron', 'Contramaestre');
+
+CREATE TABLE barcos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    canones INT NOT NULL
+);
+
+INSERT INTO barcos (nombre, tipo, canones) VALUES 
+('El Impoluto', 'Man O War', 60),
+('Venganza de la Reina Ana', 'Fragata', 40);
+
+
+
+
+Misión:
+
+Crea el login.php y validar.php.
+
+Si entra 'Adewale' (Contramaestre), en el panel.php solo debe ver una tabla con los barcos de la flota.
+
+Si entra 'Edward' (Capitán), además de la tabla, debe tener los enlaces para añadir nuevos barcos, editar los existentes y hundirlos (eliminarlos).
