@@ -1,0 +1,77 @@
+El Centro Pokémon
+
+Contexto:
+La Enfermera Joy necesita un sistema web para gestionar los Pokémon que están actualmente recuperándose en el Centro Pokémon.
+El sistema tendrá dos roles:
+
+Enfermera: Tiene acceso total. Puede ver, registrar, editar y dar de alta (borrar) a los Pokémon.
+
+Ayudante: Solo tiene acceso de lectura. Puede ver la lista de Pokémon ingresados y a quién pertenecen, pero no puede modificar nada.
+
+
+1. Preparación de la Base de Datos (centro_pokemon)
+Crea una nueva base de datos en tu PhpMyAdmin y ejecuta este código SQL. Tendremos 3 tablas: Usuarios (para el login), Entrenadores (la tabla Padre) y Pokemon (la tabla Hijo con la clave foránea).
+
+SQL
+-- TABLA 1: Usuarios para el Login
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    clave VARCHAR(50) NOT NULL,
+    rol VARCHAR(20) NOT NULL
+);
+
+INSERT INTO usuarios (usuario, clave, rol) VALUES 
+('joy', 'chansey', 'Enfermera'),
+('ash', 'pikachu', 'Ayudante');
+
+-- TABLA 2: Entrenadores (Tabla Padre)
+CREATE TABLE entrenadores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    region VARCHAR(50) NOT NULL
+);
+
+INSERT INTO entrenadores (id, nombre, region) VALUES 
+(1, 'Misty', 'Kanto'),
+(2, 'Brock', 'Kanto'),
+(3, 'Aura', 'Hoenn');
+
+-- TABLA 3: Pokémon ingresados (Tabla Hijo con Clave Foránea)
+CREATE TABLE pokemon (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    especie VARCHAR(50) NOT NULL,
+    nivel INT NOT NULL,
+    id_entrenador INT NOT NULL,
+    CONSTRAINT fk_pokemon_entrenador FOREIGN KEY (id_entrenador) REFERENCES entrenadores(id)
+);
+
+INSERT INTO pokemon (especie, nivel, id_entrenador) VALUES 
+('Starmie', 30, 1),
+('Onix', 25, 2);
+
+
+Tu Misión (Objetivos del Ejercicio):
+conexion.php: Crea tu archivo de conexión apuntando a esta nueva base de datos.
+
+login.php y validar.php: Haz el sistema de acceso. Si entras como 'joy', serás Enfermera. Si entras como 'ash', serás Ayudante.
+
+panel.php (El Reto del JOIN):
+
+Protege la página con sesiones.
+
+Muestra una tabla HTML con los Pokémon ingresados.
+
+¡Ojo! La tabla debe mostrar: Especie, Nivel y el Nombre del Entrenador (No el número del ID). Para ello tendrás que hacer un SELECT uniendo las tablas pokemon y entrenadores igual que hiciste con los aviones.
+
+Si eres Enfermera, muestra los botones de Editar, Borrar y el enlace de "Añadir Pokémon".
+
+registrar.php (El Reto del Desplegable):
+
+Protege la página (solo Enfermera).
+
+Crea un formulario para dar de alta un Pokémon (Especie y Nivel).
+
+Crea un <select name="id_entrenador"> que se rellene dinámicamente haciendo una consulta a la tabla entrenadores.
+
+guardar.php y borrar.php: Haz que inserten y eliminen respectivamente.
