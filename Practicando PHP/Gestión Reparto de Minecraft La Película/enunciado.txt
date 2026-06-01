@@ -1,0 +1,60 @@
+El Reparto de Minecraft: La Película
+Contexto:
+El set de rodaje necesita un panel para gestionar a los actores confirmados.
+
+Si entras como el Director (Jared Hess), verás la lista de actores y tendrás botones para Añadir a alguien nuevo o Despedir (borrar) a alguien.
+
+Si entras como un Actor (como Jack Black o Jason Momoa), solo verás la lista de tus compañeros, sin botones de acción.
+
+1. Preparación de la Base de Datos (minecraft_pelicula)
+Crea esta base de datos en tu PhpMyAdmin. Solo tiene una tabla, pero ahora jugaremos con los roles.
+
+SQL
+CREATE TABLE equipo_pelicula (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    clave VARCHAR(50) NOT NULL,
+    rol VARCHAR(20) NOT NULL
+);
+
+-- Insertamos al Director y a dos Actores
+INSERT INTO equipo_pelicula (nombre, clave, rol) VALUES 
+('Jared', 'accion', 'Director'),
+('Jack Black', 'steve', 'Actor'),
+('Jason Momoa', 'lobo', 'Actor');
+
+
+
+
+2. Tu Misión (6 Archivos en total):
+Paso 1: Acceso (conexion.php, login.php y validar.php)
+
+Igual que en el ejercicio de los superhéroes. Pides nombre y clave.
+
+En validar.php, guardas en $_SESSION el nombre y el rol del usuario que acaba de entrar, y lo mandas al panel.
+
+Paso 2: El Panel Principal (panel.php)
+
+Pon tu escudo de seguridad (if(!isset...)).
+
+Muestra la tabla con el reparto (SELECT * FROM equipo_pelicula).
+
+El Reto: Añade una columna extra en la tabla llamada "Acciones". Usa un if de PHP para que SOLO si el rol de la sesión es Director, se imprima un enlace que diga "Despedir" (apuntando a borrar.php?id=...).
+
+Añade un enlace suelto fuera de la tabla que diga "Añadir nuevo actor" que apunte a crear.php (este también protegido por el if del Director).
+
+Paso 3: Despedir (borrar.php)
+
+Escudo de seguridad (¡Ojo! Aquí expulsa a quien no sea Director).
+
+Recoge la ID por $_GET.
+
+Ejecuta tu DELETE FROM equipo_pelicula WHERE id = ...
+
+Redirige de vuelta a panel.php.
+
+Paso 4: Contratar (crear.php y guardar.php)
+
+crear.php: Un formulario con los campos nombre, clave y rol (puedes hacer que el rol sea un campo de texto normal donde escribas "Actor" o un pequeño <select> si te sientes inspirado). Escudo de seguridad arriba.
+
+guardar.php: Recoge los 3 datos por $_POST, hace el INSERT INTO equipo_pelicula (nombre, clave, rol) VALUES (...) y te devuelve al panel. Escudo de seguridad arriba.

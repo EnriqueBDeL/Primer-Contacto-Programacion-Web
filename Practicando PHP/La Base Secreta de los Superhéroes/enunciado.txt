@@ -1,0 +1,55 @@
+La Base Secreta de los Superhéroes
+Contexto:
+La Liga de la Justicia / Los Vengadores necesitan un portal de acceso a su base secreta. Quieren un sistema simple: una pantalla de login y un panel que muestre quiénes tienen acceso.
+
+Si eres nivel Director, puedes ver el panel completo.
+
+Si no estás en la base de datos, te quedas fuera.
+
+1. Preparación de la Base de Datos (base_secreta)
+Crea esta base de datos en tu PhpMyAdmin. Solo tiene una tabla, súper fácil.
+
+SQL
+CREATE TABLE heroes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    alias VARCHAR(50) NOT NULL,
+    clave VARCHAR(50) NOT NULL,
+    nivel_acceso VARCHAR(20) NOT NULL
+);
+
+INSERT INTO heroes (alias, clave, nivel_acceso) VALUES 
+('Batman', 'murcielago', 'Director'),
+('Spiderman', 'tiamay', 'Novato'),
+('Ironman', 'jarvis', 'Director');
+2. Tu Misión (Solo 3 archivos):
+Paso 1: login.php (El Escaparate)
+
+Crea un formulario HTML simple con método POST.
+
+Solo necesitas dos campos: alias y clave, más el botón de entrar.
+
+Paso 2: validar.php (El Portero)
+
+Recoge los datos por $_POST.
+
+Haz tu consulta SELECT para buscar a ese héroe en la base de datos.
+
+Si mysqli_num_rows es mayor que 0:
+
+Inicia sesión con session_start().
+
+Guarda en $_SESSION el alias y el nivel de acceso.
+
+Redirige a panel.php con header("Location: ...");.
+
+Si no existe, muestra un mensaje de error y un enlace para volver.
+
+Paso 3: panel.php (La Sala de Mandos)
+
+Seguridad lo primero: Pon el session_start() y tu barrera de seguridad (if(!isset...)). Si alguien intenta entrar sin loguearse, expúlsalo a login.php.
+
+Imprime un mensaje de bienvenida personalizado (ej: "Bienvenido a la base, Batman" usando la variable de sesión).
+
+Haz un SELECT * FROM heroes y pinta una tabla HTML normal y corriente (<tr>, <td>) que muestre a todos los héroes registrados.
+
+Opcional: Añade un enlace sencillo abajo del todo que diga "Cerrar Sesión" y que apunte a un cerrar.php (que simplemente haga session_destroy() y te mande al login).
