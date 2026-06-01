@@ -1,0 +1,72 @@
+El Inventario de Pociones de Snape
+Contexto:
+El profesor Snape necesita ajustar las cantidades y los tipos de pociones que tiene en el almacén. Como es un sistema local de su despacho, no hay login. Vas a tener una página principal que lista las pociones, y tu misión es programar solo la parte de editar.
+
+1. Prepara la Base de Datos (hogwarts)
+Ejecuta esto en tu PhpMyAdmin:
+
+SQL
+CREATE TABLE pociones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    cantidad INT NOT NULL
+);
+
+INSERT INTO pociones (nombre, tipo, cantidad) VALUES 
+('Félix Felicis', 'Suerte', 2),
+('Poción Multijugos', 'Transformación', 5),
+('Veritaserum', 'Verdad', 1);
+2. El punto de partida (Te lo doy hecho)
+Imagina que ya tienes tu archivo conexion.php y este archivo index.php que simplemente lista las pociones. Fíjate en cómo está hecho el enlace de editar.
+
+PHP
+<?php include("conexion.php"); ?>
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Almacén de Pociones</h2>
+    <table border="1">
+        <tr>
+            <th>Nombre</th><th>Tipo</th><th>Cantidad</th><th>Acción</th>
+        </tr>
+        <?php 
+        $sql = "SELECT * FROM pociones";
+        $resultado = mysqli_query($conexion, $sql);
+        while($pocion = mysqli_fetch_assoc($resultado)){
+            echo "<tr>";
+            echo "<td>" . $pocion['nombre'] . "</td>";
+            echo "<td>" . $pocion['tipo'] . "</td>";
+            echo "<td>" . $pocion['cantidad'] . "</td>";
+            // ¡Aquí está el enlace que dispara tu código!
+            echo "<td><a href='editar.php?id=" . $pocion['id'] . "'>Modificar</a></td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
+</body>
+</html>
+3. Tu Misión (Programa estos dos archivos):
+Archivo 1: editar.php
+
+Recoge la ID por la URL.
+
+Haz un SELECT para buscar los datos de esa poción exacta.
+
+Crea un formulario HTML que envíe los datos por POST a actualizar.php.
+
+¡El truco vital! Pon un <input type="hidden"> con la ID de la poción.
+
+Rellena los value de los otros <input> (nombre, tipo, cantidad) haciendo un echo de los datos que sacaste de la base de datos.
+
+Archivo 2: actualizar.php
+
+Recoge los 4 datos del formulario por POST (la id oculta, el nombre, el tipo y la cantidad).
+
+Construye tu sentencia UPDATE (recuerda: sin coma antes del WHERE).
+
+Ejecuta la consulta con mysqli_query.
+
+Redirige de vuelta a index.php.
+
+(Nota: Como no hay login, no hace falta usar session_start() en todo el ejercicio).
